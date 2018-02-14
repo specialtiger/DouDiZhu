@@ -1,18 +1,18 @@
 /**************************************************************\
-Ä£¿é£º
-	ÀàScene -> ¶·µØÖ÷.exe
-ÎÄ¼þ£º
+æ¨¡å—ï¼š
+	ç±»Scene -> æ–—åœ°ä¸».exe
+æ–‡ä»¶ï¼š
 	scene.cpp
-¹¦ÄÜ£º
-	»æÖÆ¼°ÏÔÊ¾ÓÎÏ·»­Ãæ£¬²¢²ÎÓëÓÎÏ·½çÃæÓëÓÃ»§½»»¥£¬±ÈÈç£º
-	ÓÃ»§ÔÚÓÎÏ·½çÃæµã»÷Ö®ºó£¬ÓÉ¸Ã²¿·Ö½øÐÐÅÐ¶ÏÊÇ·ñµã»÷ÏàÓ¦ÅÆ£¬
-	²¢¶Ô¸ÄÅÆ½øÐÐÑ¡Ôñ£¬È»ºóÔÙ·´Ó³µ½ÓÎÏ·»­Ãæ½øÐÐÏàÓ¦²Ù×÷
-×÷Õß£º
-	ËÎ±£Ã÷
-ÐÞ¸ÄÀúÊ·£º
-	ÐÞ¸ÄÈË	ÐÞ¸ÄÊ±¼ä	ÐÞ¸ÄÄÚÈÝ
+åŠŸèƒ½ï¼š
+	ç»˜åˆ¶åŠæ˜¾ç¤ºæ¸¸æˆç”»é¢ï¼Œå¹¶å‚ä¸Žæ¸¸æˆç•Œé¢ä¸Žç”¨æˆ·äº¤äº’ï¼Œæ¯”å¦‚ï¼š
+	ç”¨æˆ·åœ¨æ¸¸æˆç•Œé¢ç‚¹å‡»ä¹‹åŽï¼Œç”±è¯¥éƒ¨åˆ†è¿›è¡Œåˆ¤æ–­æ˜¯å¦ç‚¹å‡»ç›¸åº”ç‰Œï¼Œ
+	å¹¶å¯¹æ”¹ç‰Œè¿›è¡Œé€‰æ‹©ï¼Œç„¶åŽå†åæ˜ åˆ°æ¸¸æˆç”»é¢è¿›è¡Œç›¸åº”æ“ä½œ
+ä½œè€…ï¼š
+	å®‹ä¿æ˜Ž
+ä¿®æ”¹åŽ†å²ï¼š
+	ä¿®æ”¹äºº	ä¿®æ”¹æ—¶é—´	ä¿®æ”¹å†…å®¹
 	-------	-----------	-------------------------------
-	ËÎ±£Ã÷	2014.12.9	´´½¨
+	å®‹ä¿æ˜Ž	2014.12.9	åˆ›å»º
 \**************************************************************/
 
 #include <Windows.h>
@@ -49,17 +49,17 @@ Scene::~Scene()
 	DeleteObject(hbmHumanCards);
 	DeleteObject(hbrush);
 }
-//·µ»ØÓÎÏ·³¡¾°³ß´ç
+//è¿”å›žæ¸¸æˆåœºæ™¯å°ºå¯¸
 SIZE Scene::GetSize()
 {
 	return sceneSize;
 }
-//³õÊ¼»¯ÓÎÏ·³¡¾°
+//åˆå§‹åŒ–æ¸¸æˆåœºæ™¯
 void Scene::InitScene(HWND hwnd)
 {
 	int x = sceneSize.cx / 2;
 	int y = sceneSize.cy - 130 - 40;
-	//´´½¨°´Å¥
+	//åˆ›å»ºæŒ‰é’®
 	no = CreateWindow(TEXT("mybutton"), TEXT("no"), WS_CHILD,
 		x - 160, y, 68, 35, hwnd, (HMENU)No, GetModuleHandle(NULL), NULL);
 	score1 = CreateWindow(TEXT("mybutton"), TEXT("score1"), WS_CHILD,
@@ -74,7 +74,7 @@ void Scene::InitScene(HWND hwnd)
 		sceneSize.cx - 260, y, 68, 35, hwnd, (HMENU)Pass, GetModuleHandle(NULL), NULL);
 	hint = CreateWindow(TEXT("mybutton"), TEXT("hint"), WS_CHILD,
 		sceneSize.cx - 180, y, 68, 35, hwnd, (HMENU)Hint, GetModuleHandle(NULL), NULL);
-	//´´½¨Ïà¹ØÎ»Í¼ÄÚ´æÉè±¸»·¾³
+	//åˆ›å»ºç›¸å…³ä½å›¾å†…å­˜è®¾å¤‡çŽ¯å¢ƒ
 	HDC hdc = GetDC(hwnd);
 	HINSTANCE hInst = GetModuleHandle(NULL);
 
@@ -106,23 +106,23 @@ void Scene::InitScene(HWND hwnd)
 
 	ReleaseDC(hwnd, hdc);
 }
-//ÏÔÊ¾ÓÎÏ·»­Ãæ1
+//æ˜¾ç¤ºæ¸¸æˆç”»é¢1
 void Scene::ShowScene(HDC hdc)
 {
 	BitBlt(hdcScene, 0, 0, sceneSize.cx, sceneSize.cy, hdcBkg, 0, 0, SRCCOPY);
 	DrawComputerCards();
 	DrawChars();
-	DrawHumanCards(hdcScene);//Ñ¡Ôñ»æÖÆµ½ÓÎÏ·»­Ãæ»·¾³ÖÐÊÇÎªÁË·ÀÖ¹¶þ´Î»æÖÆ²úÉúµÄÉÁË¸
+	DrawHumanCards(hdcScene);//é€‰æ‹©ç»˜åˆ¶åˆ°æ¸¸æˆç”»é¢çŽ¯å¢ƒä¸­æ˜¯ä¸ºäº†é˜²æ­¢äºŒæ¬¡ç»˜åˆ¶äº§ç”Ÿçš„é—ªçƒ
 	BitBlt(hdc, 0, 0, sceneSize.cx, sceneSize.cy, hdcScene, 0, 0, SRCCOPY);
 }
-//ÏÔÊ¾ÓÎÏ·»­Ãæ2
+//æ˜¾ç¤ºæ¸¸æˆç”»é¢2
 void Scene::ShowScene(HWND hwnd)
 {
 	HDC hdc = GetDC(hwnd);
 	ShowScene(hdc);
 	ReleaseDC(hwnd, hdc);
 }
-//ÏÔÊ¾½ÐµØÖ÷°´Å¥
+//æ˜¾ç¤ºå«åœ°ä¸»æŒ‰é’®
 void Scene::ShowQuestionBtn()
 {
 	PostMessage(score1, WM_MYBUTTON, TRUE, 0);
@@ -131,7 +131,7 @@ void Scene::ShowQuestionBtn()
 	switch (game->basescore){
 	case 2:
 		PostMessage(score2, WM_MYBUTTON, FALSE, 0);
-	case 1://ÏÂÂä
+	case 1://ä¸‹è½
 		PostMessage(score1, WM_MYBUTTON, FALSE, 0);
 	}
 	ShowWindow(no, SW_SHOW);
@@ -139,7 +139,7 @@ void Scene::ShowQuestionBtn()
 	ShowWindow(score2, SW_SHOW);
 	ShowWindow(score3, SW_SHOW);
 }
-//Òþ²Ø½ÐµØÖ÷°´Å¥
+//éšè—å«åœ°ä¸»æŒ‰é’®
 void Scene::HideQuestionBtn()
 {
 	ShowWindow(no, SW_HIDE);
@@ -147,7 +147,7 @@ void Scene::HideQuestionBtn()
 	ShowWindow(score2, SW_HIDE);
 	ShowWindow(score3, SW_HIDE);
 }
-//ÏÔÊ¾³öÅÆ°´Å¥
+//æ˜¾ç¤ºå‡ºç‰ŒæŒ‰é’®
 void Scene::ShowDiscardBtn()
 {
 	PostMessage(discand, WM_MYBUTTON, FALSE, 0);
@@ -161,7 +161,7 @@ void Scene::ShowDiscardBtn()
 	ShowWindow(hint, SW_SHOW);
 	InvalidateRgn(hint, NULL, FALSE);
 }
-//Òþ²Ø³öÅÆ°´Å¥
+//éšè—å‡ºç‰ŒæŒ‰é’®
 void Scene::HideDiscardBtn()
 {
 	ShowWindow(discand, SW_HIDE);
@@ -169,7 +169,7 @@ void Scene::HideDiscardBtn()
 	ShowWindow(hint, SW_HIDE);
 }
 
-//»æÖÆ±³¾°
+//ç»˜åˆ¶èƒŒæ™¯
 void Scene::DrawBackground(void)
 {
 	PatBlt(hdcBkg, 0, 0, sceneSize.cx, sceneSize.cy, PATCOPY);
@@ -181,14 +181,14 @@ void Scene::DrawBackground(void)
 	Rectangle(hdcBkg, 470, 10, 470 + cardSize.cx, 10 + cardSize.cy);
 
 	int i = 0;
-	if (game->landlord){//ÕýÃæÏÔÊ¾µØÖ÷ÅÆ
+	if (game->landlord){//æ­£é¢æ˜¾ç¤ºåœ°ä¸»ç‰Œ
 		for (auto mem : game->landlordcard){
 			TransparentBlt(hdcBkg, 310 + 80 * i, 10, cardSize.cx, cardSize.cy,
 				hdcCards, cardSize.cx * mem, 0, cardSize.cx, cardSize.cy, RGB(0, 0, 255));
 			++i;
 		}
 	}
-	else{//Î´²úÉúµØÖ÷£¬µØÖ÷ÅÆ·´ÃæÏÔÊ¾
+	else{//æœªäº§ç”Ÿåœ°ä¸»ï¼Œåœ°ä¸»ç‰Œåé¢æ˜¾ç¤º
 		for (; i < 3; ++i){
 			TransparentBlt(hdcBkg, 310 + 80 * i, 10, cardSize.cx, cardSize.cy,
 				hdcCardBack, 0, 0, cardSize.cx, cardSize.cy, RGB(0, 0, 255));
@@ -200,12 +200,12 @@ void Scene::DrawBackground(void)
 	SelectObject(hdcBkg, oldpen);
 	DeleteObject(hpen);
 }
-//»æÖÆµçÄÔ·½ÊÖÅÆ¡¢´ò³öÅÆ¡¢¼°¡°²»³ö¡±×ÖÑù
+//ç»˜åˆ¶ç”µè„‘æ–¹æ‰‹ç‰Œã€æ‰“å‡ºç‰Œã€åŠâ€œä¸å‡ºâ€å­—æ ·
 void Scene::DrawComputerCards(void)
 {
 	int c, i = 0;
 
-	if (game->status == GAMEOVER){//ÓÎÏ·½áÊø£¬ËùÓÐÊÖÅÆÕýÃæÏÔÊ¾
+	if (game->status == GAMEOVER){//æ¸¸æˆç»“æŸï¼Œæ‰€æœ‰æ‰‹ç‰Œæ­£é¢æ˜¾ç¤º
 
 		for (auto rb = game->player[1]->cards.rbegin(); rb != game->player[1]->cards.rend();++rb){
 			TransparentBlt(hdcScene, sceneSize.cx - 50 - cardSize.cx / 2, 65 + 16 * i,
@@ -224,7 +224,7 @@ void Scene::DrawComputerCards(void)
 
 
 	}
-	else{//·ñÔò£¬ÊÖÅÆ·´ÃæÏÔÊ¾£¬²¢±ê³öÊ£ÓàÊÖÅÆÊý
+	else{//å¦åˆ™ï¼Œæ‰‹ç‰Œåé¢æ˜¾ç¤ºï¼Œå¹¶æ ‡å‡ºå‰©ä½™æ‰‹ç‰Œæ•°
 		SIZE size;
 		TCHAR szText[5];
 		HFONT hfont = CreateFont(72, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("Calibri"));
@@ -233,11 +233,11 @@ void Scene::DrawComputerCards(void)
 		SetBkMode(hdcScene, TRANSPARENT);
 
 		i = game->player[1]->cards.size();
-		if (i){//ÏÈÏÔÊ¾ÅÆµÄ±³Ãæ
+		if (i){//å…ˆæ˜¾ç¤ºç‰Œçš„èƒŒé¢
 			TransparentBlt(hdcScene, sceneSize.cx - 50 - cardSize.cx / 2, 65, cardSize.cx, cardSize.cy,
 				hdcCardBack, 0, 0, cardSize.cx, cardSize.cy, RGB(0, 0, 255));
 
-			//È»ºóÐ´ÉÏÊ£ÓàÅÆÊý
+			//ç„¶åŽå†™ä¸Šå‰©ä½™ç‰Œæ•°
 			wsprintf(szText, TEXT("%d"), i);
 			GetTextExtentPoint32(hdcScene, szText, wcslen(szText), &size);
 			TextOut(hdcScene, sceneSize.cx - 50 - size.cx / 2,
@@ -246,10 +246,10 @@ void Scene::DrawComputerCards(void)
 		}
 
 		i = game->player[2]->cards.size();
-		if (i){//ÏÔÊ¾Ò»ÕÅÅÆµÄ±³Ãæ
+		if (i){//æ˜¾ç¤ºä¸€å¼ ç‰Œçš„èƒŒé¢
 			TransparentBlt(hdcScene, 50 - cardSize.cx / 2, 65, cardSize.cx, cardSize.cy,
 				hdcCardBack, 0, 0, cardSize.cx, cardSize.cy, RGB(0, 0, 255));
-			//Ð´ÉÏÊ£ÓàÅÆÊý
+			//å†™ä¸Šå‰©ä½™ç‰Œæ•°
 			wsprintf(szText, TEXT("%d"), i);
 			GetTextExtentPoint32(hdcScene, szText, wcslen(szText), &size);
 			TextOut(hdcScene, 50 - size.cx / 2, 65 + (cardSize.cy - size.cy) / 2,
@@ -262,7 +262,7 @@ void Scene::DrawComputerCards(void)
 		DeleteObject(hfont);
 	}
 
-	if (game->player[0]->nodiscard){//ÏÔÊ¾¡°²»³ö¡±
+	if (game->player[0]->nodiscard){//æ˜¾ç¤ºâ€œä¸å‡ºâ€
 		TransparentBlt(hdcScene, (sceneSize.cx - 62) / 2, sceneSize.cy - 200,
 			63, 27, hdcNoDiscard, 0, 0, 63, 27, RGB(255, 255, 255));
 	}
@@ -270,14 +270,14 @@ void Scene::DrawComputerCards(void)
 		i = 0;
 		c = game->player[0]->discard.count;
 		for (auto rb = game->player[0]->discard.cards.rbegin();
-			rb != game->player[0]->discard.cards.rend(); ++rb){//ÏÔÊ¾´ò³öµÄÅÆ
+			rb != game->player[0]->discard.cards.rend(); ++rb){//æ˜¾ç¤ºæ‰“å‡ºçš„ç‰Œ
 			TransparentBlt(hdcScene, (sceneSize.cx - cardSize.cx - 20 * c + 20) / 2 + 20 * i,
 				sceneSize.cy - cardSize.cy - 135, cardSize.cx, cardSize.cy, hdcCards,
 				cardSize.cx * *rb, 0, cardSize.cx, cardSize.cy, RGB(0, 0, 255));
 			++i;
 		}
 	}
-	if (game->player[1]->nodiscard){//ÏÔÊ¾¡°²»³ö¡±
+	if (game->player[1]->nodiscard){//æ˜¾ç¤ºâ€œä¸å‡ºâ€
 		TransparentBlt(hdcScene, sceneSize.cx - 168, 200, 63, 27,
 			hdcNoDiscard, 0, 0, 63, 27, RGB(255, 255, 255));
 	}
@@ -285,28 +285,28 @@ void Scene::DrawComputerCards(void)
 		i = 0;
 		c = game->player[1]->discard.count;
 		for (auto rb = game->player[1]->discard.cards.rbegin();
-			rb != game->player[1]->discard.cards.rend(); ++rb){//ÏÔÊ¾´ò³öµÄÅÆ
+			rb != game->player[1]->discard.cards.rend(); ++rb){//æ˜¾ç¤ºæ‰“å‡ºçš„ç‰Œ
 			TransparentBlt(hdcScene, sceneSize.cx - cardSize.cx - 20 * c - 85 + 20 * i,
 				160, cardSize.cx, cardSize.cy, hdcCards, cardSize.cx * *rb, 0,
 				cardSize.cx, cardSize.cy, RGB(0, 0, 255));
 			++i;
 		}
 	}
-	if (game->player[2]->nodiscard){//ÏÔÊ¾¡°²»³ö¡±
+	if (game->player[2]->nodiscard){//æ˜¾ç¤ºâ€œä¸å‡ºâ€
 		TransparentBlt(hdcScene, 105, 200, 63, 27,
 			hdcNoDiscard, 0, 0, 63, 27, RGB(255, 255, 255));
 	}
 	else{
 		i = 0;
 		for (auto rb = game->player[2]->discard.cards.rbegin();
-			rb != game->player[2]->discard.cards.rend(); ++rb){//ÏÔÊ¾´ò³öµÄÅÆ
+			rb != game->player[2]->discard.cards.rend(); ++rb){//æ˜¾ç¤ºæ‰“å‡ºçš„ç‰Œ
 			TransparentBlt(hdcScene, 105 + 20 * i, 160, cardSize.cx, cardSize.cy, hdcCards,
 				cardSize.cx * *rb, 0, cardSize.cx, cardSize.cy, RGB(0, 0, 255));
 			++i;
 		}
 	}
 }
-//»æÖÆÍæ¼ÒµÄÅÆ
+//ç»˜åˆ¶çŽ©å®¶çš„ç‰Œ
 void Scene::DrawHumanCards(HDC hdc, int highlight)
 {
 	PatBlt(hdcHumanCards, 0, 0, sceneSize.cx, sceneSize.cy, PATCOPY);
@@ -316,9 +316,9 @@ void Scene::DrawHumanCards(HDC hdc, int highlight)
 		x = (650 - cardSize.cx - 22 * c + 22) / 2,
 		y = 128 - cardSize.cy - 15;
 
-	for (auto rb = game->player[0]->cards.rbegin(); rb != game->player[0]->cards.rend(); ++rb){//ÏÔÊ¾Íæ¼ÒÊÖÅÆ
+	for (auto rb = game->player[0]->cards.rbegin(); rb != game->player[0]->cards.rend(); ++rb){//æ˜¾ç¤ºçŽ©å®¶æ‰‹ç‰Œ
 		if (game->player[0]->selection.cards.find(*rb) !=
-			game->player[0]->selection.cards.end())//½«ÒÑÑ¡ÔñµÄÅÆÉÏÒÆÒ»¶Î£¬Í»³öÏÔÊ¾
+			game->player[0]->selection.cards.end())//å°†å·²é€‰æ‹©çš„ç‰Œä¸Šç§»ä¸€æ®µï¼Œçªå‡ºæ˜¾ç¤º
 			y1 = y - 15;
 		else
 			y1 = y;
@@ -336,7 +336,7 @@ void Scene::DrawHumanCards(HDC hdc, int highlight)
 	}
 	BitBlt(hdc, 100, 412, 650, 128, hdcHumanCards, 0, 0, SRCCOPY);
 }
-//»æÖÆÍæ¼ÒÅÆµÄÁíÒ»ÖÖÖØÔØÐÎÊ½
+//ç»˜åˆ¶çŽ©å®¶ç‰Œçš„å¦ä¸€ç§é‡è½½å½¢å¼
 void Scene::DrawHumanCards(HWND hwnd, int highlight)
 {
 	HDC hdc = GetDC(hwnd);
@@ -344,7 +344,7 @@ void Scene::DrawHumanCards(HWND hwnd, int highlight)
 	ReleaseDC(hwnd, hdc);
 }
 
-//»æÖÆÏà¹Ø×ÖÌå
+//ç»˜åˆ¶ç›¸å…³å­—ä½“
 void Scene::DrawChars()
 {
 	HFONT hfont, oldfont;
@@ -354,46 +354,46 @@ void Scene::DrawChars()
 	UINT textalign;
 
 	switch (game->status){
-	case GETLANDLORD://½ÐµØÖ÷½×¶Î£¬ÏÔÊ¾ÊÇ·ñ½ÐµØÖ÷¼°·ÖÊý
-		hfont = CreateFont(28, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("»ªÎÄÐÐ¿¬"));
+	case GETLANDLORD://å«åœ°ä¸»é˜¶æ®µï¼Œæ˜¾ç¤ºæ˜¯å¦å«åœ°ä¸»åŠåˆ†æ•°
+		hfont = CreateFont(28, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("åŽæ–‡è¡Œæ¥·"));
 		oldfont = (HFONT)SelectObject(hdcScene, hfont);
 		for (int i = game->questioned, j = game->callbegin; i > 0; --i, j = (j + 1) % 3){
 			int x, y;
 
 			switch (j){
-			case 0://Íæ¼Ò
+			case 0://çŽ©å®¶
 				textalign = SetTextAlign(hdcScene, TA_CENTER);
 				x = sceneSize.cx / 2;
 				y = sceneSize.cy - 200;
 				break;
-			case 1://µçÄÔ
+			case 1://ç”µè„‘
 				textalign = SetTextAlign(hdcScene, TA_RIGHT);
 				x = sceneSize.cx - 105;
 				y = 200;
 				break;
-			case 2://µçÄÔ
+			case 2://ç”µè„‘
 				textalign = SetTextAlign(hdcScene, TA_LEFT);
 				x = 105;
 				y = 200;
 				break;
 			}
 			if (game->callscore[j] == 0)
-				TextOut(hdcScene, x, y, szText, wsprintf(szText, TEXT("²»½Ð")));
+				TextOut(hdcScene, x, y, szText, wsprintf(szText, TEXT("ä¸å«")));
 			else
-				TextOut(hdcScene, x, y, szText, wsprintf(szText, TEXT("%d·Ö"), game->callscore[j]));
+				TextOut(hdcScene, x, y, szText, wsprintf(szText, TEXT("%dåˆ†"), game->callscore[j]));
 			SetTextAlign(hdcScene, textalign);
 		}
 		SelectObject(hdcScene, oldfont);
-		DeleteObject(hfont);//ÏÂÂä
-	case NOTSTART://ÏÔÊ¾µçÄÔºÍÍæ¼Ò×ÖÑù
-		hfont = CreateFont(30, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("»ªÎÄÐÂÎº"));
+		DeleteObject(hfont);//ä¸‹è½
+	case NOTSTART://æ˜¾ç¤ºç”µè„‘å’ŒçŽ©å®¶å­—æ ·
+		hfont = CreateFont(30, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("åŽæ–‡æ–°é­"));
 		oldfont = (HFONT)SelectObject(hdcScene, hfont);
 		textalign = SetTextAlign(hdcScene, TA_CENTER);
 
 		TextOut(hdcScene, 50, sceneSize.cy - cardSize.cy, szText,
-			wsprintf(szText, TEXT("%s"), TEXT("Íæ¼Ò")));
-		TextOut(hdcScene, sceneSize.cx - 50, 10, szText, wsprintf(szText, TEXT("%s"), TEXT("µçÄÔ")));
-		TextOut(hdcScene, 50, 10, szText, wsprintf(szText, TEXT("%s"), TEXT("µçÄÔ")));
+			wsprintf(szText, TEXT("%s"), TEXT("çŽ©å®¶")));
+		TextOut(hdcScene, sceneSize.cx - 50, 10, szText, wsprintf(szText, TEXT("%s"), TEXT("ç”µè„‘")));
+		TextOut(hdcScene, 50, 10, szText, wsprintf(szText, TEXT("%s"), TEXT("ç”µè„‘")));
 
 		SetTextAlign(hdcScene, textalign);
 		SelectObject(hdcScene, oldfont);
@@ -402,26 +402,26 @@ void Scene::DrawChars()
 	case SENDLANDLORDCARD:
 	case DISCARD:
 	case GAMEOVER:
-		//¸øµØÖ÷·¢ÅÆ¡¢³öÅÆ¼°ÓÎÏ·½áÊøÊ±ÏÔÊ¾·ÖÊý¡¢±¶ÂÊ¡¢µØÖ÷ºÍÅ©Ãñ
-		hfont = CreateFont(30, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("»ªÎÄÐÂÎº"));
+		//ç»™åœ°ä¸»å‘ç‰Œã€å‡ºç‰ŒåŠæ¸¸æˆç»“æŸæ—¶æ˜¾ç¤ºåˆ†æ•°ã€å€çŽ‡ã€åœ°ä¸»å’Œå†œæ°‘
+		hfont = CreateFont(30, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("åŽæ–‡æ–°é­"));
 		oldfont = (HFONT)SelectObject(hdcScene, hfont);
 		textalign = SetTextAlign(hdcScene, TA_CENTER);
 
 		TextOut(hdcScene, 50, sceneSize.cy - cardSize.cy, szText,
 			wsprintf(szText, TEXT("%s"), game->landlord == game->player[0] ?
-			TEXT("µØÖ÷") : TEXT("Å©Ãñ")));
+			TEXT("åœ°ä¸»") : TEXT("å†œæ°‘")));
 		TextOut(hdcScene, sceneSize.cx - 50, 10, szText, wsprintf(szText, TEXT("%s"),
-			game->landlord == game->player[1] ? TEXT("µØÖ÷") : TEXT("Å©Ãñ")));
+			game->landlord == game->player[1] ? TEXT("åœ°ä¸»") : TEXT("å†œæ°‘")));
 		TextOut(hdcScene, 50, 10, szText, wsprintf(szText, TEXT("%s"),
-			game->landlord == game->player[2] ? TEXT("µØÖ÷") : TEXT("Å©Ãñ")));
+			game->landlord == game->player[2] ? TEXT("åœ°ä¸»") : TEXT("å†œæ°‘")));
 		SelectObject(hdcScene, oldfont);
 		DeleteObject(hfont);
 
-		hfont = CreateFont(20, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("ËÎÌå"));
+		hfont = CreateFont(20, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("å®‹ä½“"));
 		oldfont = (HFONT)SelectObject(hdcScene, hfont);
 
 		TextOut(hdcScene, sceneSize.cx / 2, 15 + cardSize.cy, szText,
-			wsprintf(szText, TEXT("%d·Ö %d±¶"), game->basescore, game->times));
+			wsprintf(szText, TEXT("%dåˆ† %då€"), game->basescore, game->times));
 
 		SetTextAlign(hdcScene, textalign);
 		SelectObject(hdcScene, oldfont);
@@ -429,10 +429,10 @@ void Scene::DrawChars()
 		break;
 	}
 
-	hfont = CreateFont(20, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("ËÎÌå"));
+	hfont = CreateFont(20, 0, 0, 0, 0, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, TEXT("å®‹ä½“"));
 	oldfont = (HFONT)SelectObject(hdcScene, hfont);
 	textalign = SetTextAlign(hdcScene, TA_CENTER);
-	//¸÷Íæ¼Ò·ÖÊý
+	//å„çŽ©å®¶åˆ†æ•°
 	TextOut(hdcScene, 50, sceneSize.cy - 66, szText,
 		wsprintf(szText, TEXT("%d"), game->player[0]->score));
 	TextOut(hdcScene, sceneSize.cx - 50, 36, szText,
@@ -444,12 +444,12 @@ void Scene::DrawChars()
 	SelectObject(hdcScene, oldfont);
 	DeleteObject(hfont);
 }
-//»æÖÆÓÎÏ·½áÊø»­Ãæ
+//ç»˜åˆ¶æ¸¸æˆç»“æŸç”»é¢
 void Scene::DrawResult(void)
 {
 
 }
-//ÅÐ¶ÏÄ³Ò»µãÉÏÊÇ·ñÓÐÅÆ£¬ÈçÓÐÅÆ£¬·µ»Ø¸ÃÅÆµÄÖµ£¨0-53£©
+//åˆ¤æ–­æŸä¸€ç‚¹ä¸Šæ˜¯å¦æœ‰ç‰Œï¼Œå¦‚æœ‰ç‰Œï¼Œè¿”å›žè¯¥ç‰Œçš„å€¼ï¼ˆ0-53ï¼‰
 int Scene::PointInWhich(POINT point)
 {
 	auto human = game->player[0];
@@ -473,7 +473,7 @@ int Scene::PointInWhich(POINT point)
 	}
 	return -1;
 }
-//´ýÔö¼ÓµÄ¹¦ÄÜ£¬ÒÔ±ãÊó±êÖ¸Õë´ÓÅÆÉÏ¾­¹ýÊ±£¬ÏàÓ¦µÄÅÆÃæÓÐËù·´Ó¦
+//å¾…å¢žåŠ çš„åŠŸèƒ½ï¼Œä»¥ä¾¿é¼ æ ‡æŒ‡é’ˆä»Žç‰Œä¸Šç»è¿‡æ—¶ï¼Œç›¸åº”çš„ç‰Œé¢æœ‰æ‰€ååº”
 void Scene::MouseMove(POINT point)
 {
 	//BitBlt(hdcScene, 0, 0, sceneSize.cx, sceneSize.cy, hdcBkg, 0, 0, SRCCOPY);
@@ -482,7 +482,7 @@ void Scene::MouseMove(POINT point)
 	//DrawChars();
 	InvalidateRect(GetParent(no), NULL, FALSE);
 }
-//µ±Ñ¡ÔñÄ³ÕÅÅÆÊ±
+//å½“é€‰æ‹©æŸå¼ ç‰Œæ—¶
 void Scene::SelectCard(POINT point)
 {
 	int num = PointInWhich(point);
@@ -499,7 +499,7 @@ void Scene::SelectCard(POINT point)
 	}
 
 }
-//µ±È¡ÏûÑ¡ÔñÄ³ÕÅÅÆÊ±
+//å½“å–æ¶ˆé€‰æ‹©æŸå¼ ç‰Œæ—¶
 void Scene::DeleteCard(POINT point)
 {
 	int num = PointInWhich(point);

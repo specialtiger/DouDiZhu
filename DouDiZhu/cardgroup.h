@@ -2,21 +2,21 @@
 
 
 
-//Ò»×éÅÆµÄ¿ÉÄÜÀàĞÍ
+//ä¸€ç»„ç‰Œçš„å¯èƒ½ç±»å‹
 enum Type{
-	Unkown,//Î´Öª
-	Single,//µ¥ÕÅ
-	Double,//¶Ô×Ó
-	Three,//ÈıÌõ
-	SingleSeq,//µ¥Ë³
-	DoubleSeq,//Ë«Ë³
-	ThreeSeq,//ÈıË³
-	ThreePlus,//Èı´øÒ»£¨Ò»ÕÅ»òÒ»¶Ô£©
-	Airplane,//·É»ú
-	FourSeq,//ËÄ´ø¶ş£¨Á½ÕÅ»òÁ½¶Ô£©
-	Bomb,//Õ¨µ¯¡¢ÍõÕ¨
+	Unkown,//æœªçŸ¥
+	Single,//å•å¼ 
+	Double,//å¯¹å­
+	Three,//ä¸‰æ¡
+	SingleSeq,//å•é¡º
+	DoubleSeq,//åŒé¡º
+	ThreeSeq,//ä¸‰é¡º
+	ThreePlus,//ä¸‰å¸¦ä¸€ï¼ˆä¸€å¼ æˆ–ä¸€å¯¹ï¼‰
+	Airplane,//é£æœº
+	FourSeq,//å››å¸¦äºŒï¼ˆä¸¤å¼ æˆ–ä¸¤å¯¹ï¼‰
+	Bomb,//ç‚¸å¼¹ã€ç‹ç‚¸
 };
-//ÅÆĞÍ½á¹¹
+//ç‰Œå‹ç»“æ„
 class CardGroup{
 	friend class Player;
 	friend class Game;
@@ -25,15 +25,15 @@ public:
 	CardGroup();
 	CardGroup(Type t, int v);
 	CardGroup& operator=(CardGroup &cg);
-	void AddNumber(int num);//Ìí¼Ó0-53±íÊ¾µÄÅÆÔªËØ
-	void DeleteNumber(int num);//È¥µôÒ»ÕÅÅÆ
-	void Clear(void);//ÖØÖÃ´Ë½á¹¹
-	//°Ñ0-53×ª»»³É3-17È¨Öµ£¬ÆäÖĞA£¨14£©¡¢2£¨15£©¡¢Ğ¡Íõ£¨16£©¡¢´óÍõ£¨17£©
+	void AddNumber(int num);//æ·»åŠ 0-53è¡¨ç¤ºçš„ç‰Œå…ƒç´ 
+	void DeleteNumber(int num);//å»æ‰ä¸€å¼ ç‰Œ
+	void Clear(void);//é‡ç½®æ­¤ç»“æ„
+	//æŠŠ0-53è½¬æ¢æˆ3-17æƒå€¼ï¼Œå…¶ä¸­Aï¼ˆ14ï¼‰ã€2ï¼ˆ15ï¼‰ã€å°ç‹ï¼ˆ16ï¼‰ã€å¤§ç‹ï¼ˆ17ï¼‰
 	static int Translate(int num);
 private:
-	std::map<int, int> group;//3-17È¨Öµ¼¯ºÏ
-	std::set<int> cards;//0-53×é³ÉµÄ¼¯ºÏ£¬Ö÷ÒªÓÃÓÚ·½±ã»­ÃæÏÔÊ¾
-	Type type;//ÅÆĞÍÀàĞÍ£¨µ¥ÅÆ¡¢¶Ô×ÓµÈµÈ£©
-	int value;//È¨Öµ
-	int count;//´Ë½á¹¹ÔªËØÊıÁ¿£¨ÅÆÊıÁ¿£©
+	std::map<int, int> group;//3-17æƒå€¼é›†åˆ
+	std::set<int> cards;//0-53ç»„æˆçš„é›†åˆï¼Œä¸»è¦ç”¨äºæ–¹ä¾¿ç”»é¢æ˜¾ç¤º
+	Type type;//ç‰Œå‹ç±»å‹ï¼ˆå•ç‰Œã€å¯¹å­ç­‰ç­‰ï¼‰
+	int value;//æƒå€¼
+	int count;//æ­¤ç»“æ„å…ƒç´ æ•°é‡ï¼ˆç‰Œæ•°é‡ï¼‰
 };

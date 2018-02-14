@@ -1,48 +1,48 @@
 #pragma once
 
-//Íæ¼ÒÀà
+//ç©å®¶ç±»
 class Player{
 	friend class Game;
 	friend class Scene;
 public:
 	Player(Game &game);
 
-	void NewGame(void);//¿ªÊ¼ĞÂµÄÒ»¾Ö£¬×öÒ»Ğ©³õÊ¼»¯¼¯ºÏµÈµÄ²Ù×÷
-	void ClearAnalyse(void);//Çå¿Õ·ÖÎöÅÆ¼¯ºÏ
-	int GetBaseScore(int questioned,int nowscore);//±¾¾ÖÊÇ·ñÏëµ±µØÖ÷£¬²¢¸ø³ö»ù±¾·Ö
-	void AddCard(int num){ cards.insert(num); }//Ä¨ÅÆ
-	int GetRemain(void){ return cards.size(); }//Ê£ÓàÅÆÊı
-	bool IsValid(void);//ÅĞ¶ÏÑ¡ÔñÅÆÊÇ·ñºÏ¸ñ
-	void AnalyseSelection(void);//·ÖÎöÑ¡ÔñÅÆÀàĞÍ¼°×ÜÈ¨Öµ
-	void DivideIntoGroups(void); //·ÖÎö²¢²ğ·ÖÅÆĞÍ
-	void ThreeplusAndAirplane(void);//´Ó·ÖÎöºóµÄ»ù±¾ÅÆĞÍÖĞ×éºÏÈı´øÒ»ºÍ·É»ú
-	void DeleteUnkown(void);//É¾³ıÅÆĞÍ¼¯ºÏÖĞÎ´ÖªÀàĞÍ
-	void SelectCards(bool hint=false);//AIÑ¡ÅÆ
-	void Myself();//Ö±½Ó³öÅÆ
-	void Friend();//¸úÓÑ·½ÅÆ
-	void Enemy(bool hint);//¸úµĞ·½ÅÆ
-	void NeedSigle();//²ğ³öµ¥ÕÅ
+	void NewGame(void);//å¼€å§‹æ–°çš„ä¸€å±€ï¼Œåšä¸€äº›åˆå§‹åŒ–é›†åˆç­‰çš„æ“ä½œ
+	void ClearAnalyse(void);//æ¸…ç©ºåˆ†æç‰Œé›†åˆ
+	int GetBaseScore(int questioned,int nowscore);//æœ¬å±€æ˜¯å¦æƒ³å½“åœ°ä¸»ï¼Œå¹¶ç»™å‡ºåŸºæœ¬åˆ†
+	void AddCard(int num){ cards.insert(num); }//æŠ¹ç‰Œ
+	int GetRemain(void){ return cards.size(); }//å‰©ä½™ç‰Œæ•°
+	bool IsValid(void);//åˆ¤æ–­é€‰æ‹©ç‰Œæ˜¯å¦åˆæ ¼
+	void AnalyseSelection(void);//åˆ†æé€‰æ‹©ç‰Œç±»å‹åŠæ€»æƒå€¼
+	void DivideIntoGroups(void); //åˆ†æå¹¶æ‹†åˆ†ç‰Œå‹
+	void ThreeplusAndAirplane(void);//ä»åˆ†æåçš„åŸºæœ¬ç‰Œå‹ä¸­ç»„åˆä¸‰å¸¦ä¸€å’Œé£æœº
+	void DeleteUnkown(void);//åˆ é™¤ç‰Œå‹é›†åˆä¸­æœªçŸ¥ç±»å‹
+	void SelectCards(bool hint=false);//AIé€‰ç‰Œ
+	void Myself();//ç›´æ¥å‡ºç‰Œ
+	void Friend();//è·Ÿå‹æ–¹ç‰Œ
+	void Enemy(bool hint);//è·Ÿæ•Œæ–¹ç‰Œ
+	void NeedSigle();//æ‹†å‡ºå•å¼ 
 	void NeedDouble();
 	void NeedSigleSeq();
 	void NeedThreePlus();
 	void NeedAirplane();
-	bool Discard(void); //AI³öÅÆ
-	bool HumanDiscard();//Íæ¼Ò³öÅÆ
-	bool DiscardAndClear();//³öÅÆ²¢ÖØÖÃÏàÓ¦½á¹¹
-	//void Hint(void); //ÌáÊ¾ÅÆ
-	void Pass(void);//¹ıÅÆ£¬ÖØÖÃÏàÓ¦½á¹¹
-	//¸ø¶¨È¨Öµ£¬´Ó¼¯ºÏÖĞ²éÕÒÏàÓ¦0-53Êı×Ö£¬È»ºó´Ó¼¯ºÏÖĞÉ¾³ı²¢·µ»Ø¸ÃÊı×Ö£»²»´æÔÚ»òÎŞĞ§·µ»Ø-1
+	bool Discard(void); //AIå‡ºç‰Œ
+	bool HumanDiscard();//ç©å®¶å‡ºç‰Œ
+	bool DiscardAndClear();//å‡ºç‰Œå¹¶é‡ç½®ç›¸åº”ç»“æ„
+	//void Hint(void); //æç¤ºç‰Œ
+	void Pass(void);//è¿‡ç‰Œï¼Œé‡ç½®ç›¸åº”ç»“æ„
+	//ç»™å®šæƒå€¼ï¼Œä»é›†åˆä¸­æŸ¥æ‰¾ç›¸åº”0-53æ•°å­—ï¼Œç„¶åä»é›†åˆä¸­åˆ é™¤å¹¶è¿”å›è¯¥æ•°å­—ï¼›ä¸å­˜åœ¨æˆ–æ— æ•ˆè¿”å›-1
 	int ValueToNum(std::set<int> &cardscopy, int value);
-	void FreshenMap(std::map<int, int> &m);//É¾³ı·ÖÎö¶ÑÖĞÊıÁ¿ÎªÁãµÄÔªËØ
-	static bool MyCompare(CardGroup *c1, CardGroup *c2);//¶Ô·ÖÎöºóÅÆ¼¯ºÏÅÅĞòµÄ»Øµ÷º¯Êı
+	void FreshenMap(std::map<int, int> &m);//åˆ é™¤åˆ†æå †ä¸­æ•°é‡ä¸ºé›¶çš„å…ƒç´ 
+	static bool MyCompare(CardGroup *c1, CardGroup *c2);//å¯¹åˆ†æåç‰Œé›†åˆæ’åºçš„å›è°ƒå‡½æ•°
 
 private:
-	Game &game;//ÓÎÏ·¶ÔÏó
-	bool test;//ÊÇ·ñÊÔ¹ıËÍÏÂ¼Ò×ß
-	bool nodiscard;//²»³ö±êÖ¾
-	int score;//Íæ¼Òµ±Ç°·ÖÊı
-	std::set<int> cards;//ÊÖÅÆ
-	std::vector<CardGroup*> analyse;//·ÖÎöºó²ğ·ÖµÄÅÆĞÍ¼¯ºÏ
-	CardGroup selection;//Ñ¡ÔñÅÆµÄ¼¯ºÏ
-	CardGroup discard;//´ò³öµÄÅÆµÄ¼¯ºÏ
+	Game &game;//æ¸¸æˆå¯¹è±¡
+	bool test;//æ˜¯å¦è¯•è¿‡é€ä¸‹å®¶èµ°
+	bool nodiscard;//ä¸å‡ºæ ‡å¿—
+	int score;//ç©å®¶å½“å‰åˆ†æ•°
+	std::set<int> cards;//æ‰‹ç‰Œ
+	std::vector<CardGroup*> analyse;//åˆ†æåæ‹†åˆ†çš„ç‰Œå‹é›†åˆ
+	CardGroup selection;//é€‰æ‹©ç‰Œçš„é›†åˆ
+	CardGroup discard;//æ‰“å‡ºçš„ç‰Œçš„é›†åˆ
 };

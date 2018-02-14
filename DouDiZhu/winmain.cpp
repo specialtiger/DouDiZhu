@@ -1,16 +1,16 @@
 /**************************************************************\
-Ä£¿é£º
-	¡°¶·µØÖ÷¡±µÄÖ÷´°Ìå¼°°´Å¥×Ó´°ÌåÏûÏ¢´¦Àíº¯Êı
-ÎÄ¼ş£º
+æ¨¡å—ï¼š
+	â€œæ–—åœ°ä¸»â€çš„ä¸»çª—ä½“åŠæŒ‰é’®å­çª—ä½“æ¶ˆæ¯å¤„ç†å‡½æ•°
+æ–‡ä»¶ï¼š
 	winmain.cpp
-¹¦ÄÜ£º
-	¸ºÔğÕû¸ö³ÌĞòËùÓĞ´°ÌåÏûÏ¢´¦Àí¡£
-×÷Õß£º
-	ËÎ±£Ã÷
-ĞŞ¸ÄÀúÊ·£º
-	ĞŞ¸ÄÈË	ĞŞ¸ÄÊ±¼ä	ĞŞ¸ÄÄÚÈİ
+åŠŸèƒ½ï¼š
+	è´Ÿè´£æ•´ä¸ªç¨‹åºæ‰€æœ‰çª—ä½“æ¶ˆæ¯å¤„ç†ã€‚
+ä½œè€…ï¼š
+	å®‹ä¿æ˜
+ä¿®æ”¹å†å²ï¼š
+	ä¿®æ”¹äºº	ä¿®æ”¹æ—¶é—´	ä¿®æ”¹å†…å®¹
 	-------	-----------	-------------------------------
-	ËÎ±£Ã÷	2014.12.8	´´½¨
+	å®‹ä¿æ˜	2014.12.8	åˆ›å»º
 \**************************************************************/
 #include <Windows.h>
 #include "winmain.h"
@@ -18,7 +18,7 @@
 #include "scene.h"
 
 
-PTSTR szAppName = TEXT("¶·µØÖ÷");
+PTSTR szAppName = TEXT("æ–—åœ°ä¸»");
 PTSTR szDataFile = TEXT("data");
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK ButtonProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -47,7 +47,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR szCmd, int nShow)
 	wcls.lpszMenuName = NULL;
 
 	if (!RegisterClassEx(&wcls)){
-		MessageBox(NULL, TEXT("×¢²áÀà³ö´í£¡"), TEXT("´íÎó"), MB_ICONERROR);
+		MessageBox(NULL, TEXT("æ³¨å†Œç±»å‡ºé”™ï¼"), TEXT("é”™è¯¯"), MB_ICONERROR);
 		return 0;
 	}
 
@@ -58,7 +58,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR szCmd, int nShow)
 
 
 	if (!RegisterClassEx(&wcls)){
-		MessageBox(NULL, TEXT("×¢²áÀà³ö´í£¡"), TEXT("´íÎó"), MB_ICONERROR);
+		MessageBox(NULL, TEXT("æ³¨å†Œç±»å‡ºé”™ï¼"), TEXT("é”™è¯¯"), MB_ICONERROR);
 		return 0;
 	}
 
@@ -185,7 +185,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	}
 	return DefWindowProc(hwnd, message, wParam, lParam);
 }
-//ÏÔÊ¾°´Å¥Í¼Æ¬
+//æ˜¾ç¤ºæŒ‰é’®å›¾ç‰‡
 void ShowImage(HWND hwnd,HDC hdc, int number)
 {
 	HDC hdcmem;
@@ -203,7 +203,7 @@ void ShowImage(HWND hwnd,HDC hdc, int number)
 	DeleteObject(hbitmap);
 	DeleteDC(hdcmem);
 }
-//°´Å¥´°¿Ú´¦Àíº¯Êı
+//æŒ‰é’®çª—å£å¤„ç†å‡½æ•°
 LRESULT CALLBACK ButtonProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	HDC hdc;

@@ -31,10 +31,10 @@ private:
 	Game *game;
 	HDC hdcScene;
 	HDC hdcBkg;
-	HDC hdcHumanCards;//»­Íæ¼ÒÊÖÅÆ
-	HDC hdcCards;//54ÕÅÅÆµÄÕıÃæ
-	HDC hdcCardBack;//ÅÆ±³Ãæ
-	HDC hdcNoDiscard;//¡°²»³ö¡±×ÖÑù
+	HDC hdcHumanCards;//ç”»ç©å®¶æ‰‹ç‰Œ
+	HDC hdcCards;//54å¼ ç‰Œçš„æ­£é¢
+	HDC hdcCardBack;//ç‰ŒèƒŒé¢
+	HDC hdcNoDiscard;//â€œä¸å‡ºâ€å­—æ ·
 	HBITMAP hbmScene;
 	HBITMAP hbmBkg;
 	HBITMAP hbmHumanCards;

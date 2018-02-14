@@ -1,19 +1,19 @@
 /**************************************************************\
-Ä£¿é£º
-	ÀàPlayer -> ¶·µØÖ÷.exe
-ÎÄ¼ş£º
+æ¨¡å—ï¼š
+	ç±»Player -> æ–—åœ°ä¸».exe
+æ–‡ä»¶ï¼š
 	player.cpp
-¹¦ÄÜ£º
-	ÓÃ×÷Íæ¼ÒÀà£¬°üº¬£º
-	1.Íæ¼Ò±ØĞëµÄ½á¹¹¼°±äÁ¿£¬Èç£ºÊÖÅÆ¼¯¡¢×îºó³öÅÆ¡¢·ÖÊıµÈ£»
-	2.ÈË¹¤ÖÇÄÜÏà¹Øº¯Êı£¬Èç£º·ÖÎöÊÖÅÆ¡¢½«ÊÖÅÆ°´»ù±¾ÅÆÀàĞÍ²ğ·Ö¼°×éºÏ¡¢
-	  ÅĞ¶Ï½ĞµØÖ÷·ÖÊı¡¢Ó¦µ±³öÊ²Ã´ÅÆµÄÅĞ¶ÏµÈ¡£
-×÷Õß£º
-	ËÎ±£Ã÷
-ĞŞ¸ÄÀúÊ·£º
-	ĞŞ¸ÄÈË	ĞŞ¸ÄÊ±¼ä	ĞŞ¸ÄÄÚÈİ
+åŠŸèƒ½ï¼š
+	ç”¨ä½œç©å®¶ç±»ï¼ŒåŒ…å«ï¼š
+	1.ç©å®¶å¿…é¡»çš„ç»“æ„åŠå˜é‡ï¼Œå¦‚ï¼šæ‰‹ç‰Œé›†ã€æœ€åå‡ºç‰Œã€åˆ†æ•°ç­‰ï¼›
+	2.äººå·¥æ™ºèƒ½ç›¸å…³å‡½æ•°ï¼Œå¦‚ï¼šåˆ†ææ‰‹ç‰Œã€å°†æ‰‹ç‰ŒæŒ‰åŸºæœ¬ç‰Œç±»å‹æ‹†åˆ†åŠç»„åˆã€
+	  åˆ¤æ–­å«åœ°ä¸»åˆ†æ•°ã€åº”å½“å‡ºä»€ä¹ˆç‰Œçš„åˆ¤æ–­ç­‰ã€‚
+ä½œè€…ï¼š
+	å®‹ä¿æ˜
+ä¿®æ”¹å†å²ï¼š
+	ä¿®æ”¹äºº	ä¿®æ”¹æ—¶é—´	ä¿®æ”¹å†…å®¹
 	-------	-----------	-------------------------------
-	ËÎ±£Ã÷	2014.12.5	´´½¨
+	å®‹ä¿æ˜	2014.12.5	åˆ›å»º
 \**************************************************************/
 
 #include <Windows.h>
@@ -35,7 +35,7 @@ Player::Player(Game &game)
 {
 
 }
-//¿ªÊ¼ĞÂµÄÒ»¾Ö£¬×öÒ»Ğ©³õÊ¼»¯¼¯ºÏµÈµÄ²Ù×÷
+//å¼€å§‹æ–°çš„ä¸€å±€ï¼Œåšä¸€äº›åˆå§‹åŒ–é›†åˆç­‰çš„æ“ä½œ
 void Player::NewGame()
 {
 	test = false;
@@ -45,7 +45,7 @@ void Player::NewGame()
 	selection.Clear();
 	discard.Clear();
 }
-//Çå¿Õ·ÖÎöÅÆ¼¯ºÏ
+//æ¸…ç©ºåˆ†æç‰Œé›†åˆ
 void Player::ClearAnalyse()
 {
 	if (analyse.empty())
@@ -57,7 +57,7 @@ void Player::ClearAnalyse()
 
 	return;
 }
-//»Øµ÷º¯Êı
+//å›è°ƒå‡½æ•°
 bool Player::MyCompare(CardGroup *c1, CardGroup *c2)
 {
 	if (c1->type != c2->type)
@@ -66,37 +66,37 @@ bool Player::MyCompare(CardGroup *c1, CardGroup *c2)
 		return c1->value < c2->value;
 }
 
-//±¾¾ÖÊÇ·ñÏëµ±µØÖ÷£¬²¢¸ø³ö»ù±¾·Ö
-//½ĞÅÆÔ­Ôò²Î¿¼£ºhttp://hi.baidu.com/lvhxwhcuygafpyr/item/1cf4b335205f78627c034ba9
-//ÒòÎªÔÚ¶·µØÖ÷ÖĞ£¬»ğ¼ı¡¢Õ¨µ¯¡¢ÍõºÍ2¿ÉÒÔÈÏÎªÊÇ´óÅÆ£¬ËùÒÔ½ĞÅÆĞèÒª°´ÕÕÕâĞ©ÅÆµÄ¶àÉÙÀ´ÅĞ¶Ï¡£ÏÂÃæÊÇÒ»¸ö¼òµ¥µÄÔ­Ôò£º
-//¼Ù¶¨»ğ¼ıÎª8·Ö£¬Õ¨µ¯Îª6·Ö£¬´óÍõ4·Ö£¬Ğ¡Íõ3·Ö£¬Ò»¸ö2Îª2·Ö£¬Ôòµ±·ÖÊı
-//´óÓÚµÈÓÚ7·ÖÊ±½ĞÈı±¶£»
-//´óÓÚµÈÓÚ5·ÖÊ±½Ğ¶ş±¶£»
-//´óÓÚµÈÓÚ3·ÖÊ±½ĞÒ»±¶£»
-//Ğ¡ÓÚÈı·Ö²»½Ğ¡£
+//æœ¬å±€æ˜¯å¦æƒ³å½“åœ°ä¸»ï¼Œå¹¶ç»™å‡ºåŸºæœ¬åˆ†
+//å«ç‰ŒåŸåˆ™å‚è€ƒï¼šhttp://hi.baidu.com/lvhxwhcuygafpyr/item/1cf4b335205f78627c034ba9
+//å› ä¸ºåœ¨æ–—åœ°ä¸»ä¸­ï¼Œç«ç®­ã€ç‚¸å¼¹ã€ç‹å’Œ2å¯ä»¥è®¤ä¸ºæ˜¯å¤§ç‰Œï¼Œæ‰€ä»¥å«ç‰Œéœ€è¦æŒ‰ç…§è¿™äº›ç‰Œçš„å¤šå°‘æ¥åˆ¤æ–­ã€‚ä¸‹é¢æ˜¯ä¸€ä¸ªç®€å•çš„åŸåˆ™ï¼š
+//å‡å®šç«ç®­ä¸º8åˆ†ï¼Œç‚¸å¼¹ä¸º6åˆ†ï¼Œå¤§ç‹4åˆ†ï¼Œå°ç‹3åˆ†ï¼Œä¸€ä¸ª2ä¸º2åˆ†ï¼Œåˆ™å½“åˆ†æ•°
+//å¤§äºç­‰äº7åˆ†æ—¶å«ä¸‰å€ï¼›
+//å¤§äºç­‰äº5åˆ†æ—¶å«äºŒå€ï¼›
+//å¤§äºç­‰äº3åˆ†æ—¶å«ä¸€å€ï¼›
+//å°äºä¸‰åˆ†ä¸å«ã€‚
 int Player::GetBaseScore(int questioned, int nowscore)
 {
-	if (questioned == 2 && nowscore == 0)//Èç¹ûÇ°Á½Î»¶¼Î´½ĞÅÆ£¬Ö±½Ó3·Öµ±µØÖ÷£¬Äã¶®µÃ~
+	if (questioned == 2 && nowscore == 0)//å¦‚æœå‰ä¸¤ä½éƒ½æœªå«ç‰Œï¼Œç›´æ¥3åˆ†å½“åœ°ä¸»ï¼Œä½ æ‡‚å¾—~
 		return 3;
 
 	int sum = 0;
-	map<int, int> needanalyse;//·½±ã·ÖÎöµÄÈ¨Öµ-ÊıÁ¿¼¯ºÏ
+	map<int, int> needanalyse;//æ–¹ä¾¿åˆ†æçš„æƒå€¼-æ•°é‡é›†åˆ
 	for (auto mem : cards)
-		++needanalyse[CardGroup::Translate(mem)];//¸ù¾İÊÖÅÆ¹¹Ôì´ı·ÖÎö¼¯ºÏ
+		++needanalyse[CardGroup::Translate(mem)];//æ ¹æ®æ‰‹ç‰Œæ„é€ å¾…åˆ†æé›†åˆ
 
 	if (needanalyse.find(16) != needanalyse.end() &&
-		needanalyse.find(17) != needanalyse.end())//´æÔÚÍõÕ¨
+		needanalyse.find(17) != needanalyse.end())//å­˜åœ¨ç‹ç‚¸
 		sum += 8;
-	else if (needanalyse.find(16) != needanalyse.end())//Ò»ÕÅĞ¡Íõ
+	else if (needanalyse.find(16) != needanalyse.end())//ä¸€å¼ å°ç‹
 		sum += 3;
-	else if (needanalyse.find(17) != needanalyse.end())//Ò»ÕÅ´óÍõ
+	else if (needanalyse.find(17) != needanalyse.end())//ä¸€å¼ å¤§ç‹
 		sum += 4;
 
-	if (needanalyse.find(15) != needanalyse.end())//2µÄÊıÁ¿
+	if (needanalyse.find(15) != needanalyse.end())//2çš„æ•°é‡
 		sum += 2 * needanalyse[15];
 
 	for (auto mem : needanalyse){
-		if (mem.second == 4)//Õ¨µ¯
+		if (mem.second == 4)//ç‚¸å¼¹
 			sum += 6;
 	}
 	int result;
@@ -110,17 +110,17 @@ int Player::GetBaseScore(int questioned, int nowscore)
 		result = 0;
 	return (result > nowscore ? result : 0);
 }
-//·ÖÎöÑ¡ÅÆÊÇ·ñ·ûºÏ¹æ¶¨
+//åˆ†æé€‰ç‰Œæ˜¯å¦ç¬¦åˆè§„å®š
 bool Player::IsValid()
 {
 	if (game.lastone && game.lastone->discard.count != selection.count &&
-		selection.count != 4 && selection.count != 2)//¸úÅÆ£¬µ«ÊıÁ¿²»·ûÇÒ²»¿ÉÄÜÎªÕ¨µ¯
+		selection.count != 4 && selection.count != 2)//è·Ÿç‰Œï¼Œä½†æ•°é‡ä¸ç¬¦ä¸”ä¸å¯èƒ½ä¸ºç‚¸å¼¹
 		return false;
 
 	selection.type = Unkown;
-	AnalyseSelection();//·ÖÎöËùÑ¡ÅÆµÄÀàĞÍ¼°È¨Öµ
+	AnalyseSelection();//åˆ†ææ‰€é€‰ç‰Œçš„ç±»å‹åŠæƒå€¼
 
-	if (selection.type == Unkown)//ËùÑ¡ÅÆ²»·ûºÏ¹æ¶¨
+	if (selection.type == Unkown)//æ‰€é€‰ç‰Œä¸ç¬¦åˆè§„å®š
 		return false;
 
 	if (game.lastone){
@@ -129,20 +129,20 @@ bool Player::IsValid()
 			selection.value > game.lastone->discard.value))
 			return true;
 		if (selection.type != game.lastone->discard.type ||
-			selection.count != game.lastone->discard.count)//ÀàĞÍ²»·û»òÊıÁ¿²»·û
+			selection.count != game.lastone->discard.count)//ç±»å‹ä¸ç¬¦æˆ–æ•°é‡ä¸ç¬¦
 			return false;
-		if (selection.value <= game.lastone->discard.value)//Ñ¡ÅÆ²»´óÓÚÉÏ¼ÒÅÆ
+		if (selection.value <= game.lastone->discard.value)//é€‰ç‰Œä¸å¤§äºä¸Šå®¶ç‰Œ
 			return false;
 	}
 	return true;
 }
-//¶ÔÑ¡ÅÆ½øĞĞ·ÖÎö
+//å¯¹é€‰ç‰Œè¿›è¡Œåˆ†æ
 void Player::AnalyseSelection()
 {
-	int NumMax = 0,//Í¬ÅÆÃæµÄ×î´óÊıÁ¿
-		ValueMax = 0;//×î´óÊıÁ¿µÄ×î´óÈ¨Öµ
+	int NumMax = 0,//åŒç‰Œé¢çš„æœ€å¤§æ•°é‡
+		ValueMax = 0;//æœ€å¤§æ•°é‡çš„æœ€å¤§æƒå€¼
 
-	//ÅĞ¶ÏÊÇ·ñÎªÍõÕ¨
+	//åˆ¤æ–­æ˜¯å¦ä¸ºç‹ç‚¸
 	if (selection.count == 2 &&
 		selection.group.find(16) != selection.group.end() &&
 		selection.group.find(17) != selection.group.end()){
@@ -150,49 +150,49 @@ void Player::AnalyseSelection()
 		selection.value = 17;
 		return;
 	}
-	//ÕÒ³öÏàÍ¬ÅÆÃæµÄ×î´óÊıÁ¿£¬ºÍ×î´óÈ¨Öµ
+	//æ‰¾å‡ºç›¸åŒç‰Œé¢çš„æœ€å¤§æ•°é‡ï¼Œå’Œæœ€å¤§æƒå€¼
 	for (auto mem : selection.group){
 		if (mem.second >= NumMax && mem.first > ValueMax){
 			NumMax = mem.second;
 			ValueMax = mem.first;
 		}
 	}
-	//¸ù¾İÅÆÃæÏàÍ¬µÄ×î´óÊıÁ¿ÅĞ¶ÏÀàĞÍ
+	//æ ¹æ®ç‰Œé¢ç›¸åŒçš„æœ€å¤§æ•°é‡åˆ¤æ–­ç±»å‹
 	switch (NumMax){
 	case 4:
-		if (selection.count == 4){//Õ¨µ¯
+		if (selection.count == 4){//ç‚¸å¼¹
 			selection.type = Bomb;
 			selection.value = ValueMax;
 			return;
 		}
-		if (selection.count == 6){//ËÄ´øÁ½ÕÅ
+		if (selection.count == 6){//å››å¸¦ä¸¤å¼ 
 			selection.type = FourSeq;
 			selection.value = ValueMax;
 			return;
 		}
-		if (selection.count == 8){//ËÄ´øÁ½¶Ô
+		if (selection.count == 8){//å››å¸¦ä¸¤å¯¹
 			for (auto mem : selection.group){
-				if (mem.second != 2 && mem.second != 4)//ÅÆÃæ²»ºÏ¹æ
+				if (mem.second != 2 && mem.second != 4)//ç‰Œé¢ä¸åˆè§„
 					return;
 			}
 			selection.type = FourSeq;
 			selection.value = ValueMax;
 			return;
 		}
-		return;//ÅÆÃæ²»ºÏ¹æ
+		return;//ç‰Œé¢ä¸åˆè§„
 	case 3:
 	{
-			  if (selection.count == 3){//ÈıÌõ
+			  if (selection.count == 3){//ä¸‰æ¡
 				  selection.type = Three;
 				  selection.value = ValueMax;
 				  return;
 			  }
-			  if (selection.count == 4){//Èı´øÒ»ÕÅ
+			  if (selection.count == 4){//ä¸‰å¸¦ä¸€å¼ 
 				  selection.type = ThreePlus;
 				  selection.value = ValueMax;
 				  return;
 			  }
-			  if (selection.count == 5){//Èı´øÁ½ÕÅ
+			  if (selection.count == 5){//ä¸‰å¸¦ä¸¤å¼ 
 				  for (auto mem : selection.group){
 					  if (mem.second != 3 && mem.second != 2)
 						  return;
@@ -202,7 +202,7 @@ void Player::AnalyseSelection()
 				  return;
 			  }
 			  int begin = 0, n = 0;
-			  for (auto mem : selection.group){//ÅĞ¶ÏÁ¬ĞøµÄ3ÕÅÅÆÃæµÄ×î´óÊıÁ¿
+			  for (auto mem : selection.group){//åˆ¤æ–­è¿ç»­çš„3å¼ ç‰Œé¢çš„æœ€å¤§æ•°é‡
 				  if (mem.second == 3){
 					  if (!begin || begin == mem.first)
 						  ++n;
@@ -215,71 +215,71 @@ void Player::AnalyseSelection()
 					  ++begin;
 				  }
 			  }
-			  if (selection.count == 3 * n){//ÈıË³
+			  if (selection.count == 3 * n){//ä¸‰é¡º
 				  selection.type = ThreeSeq;
 				  selection.value = ValueMax;
 				  return;
 			  }
-			  if (selection.count == 4 * n){//·É»ú´øµ¥ÕÅµÄ³á°ò
+			  if (selection.count == 4 * n){//é£æœºå¸¦å•å¼ çš„ç¿…è†€
 				  selection.type = Airplane;
 				  selection.value = ValueMax;
 				  return;
 			  }
-			  if (selection.count == 5 * n){//·É»ú´ø¶Ô×Ó³á°ò
+			  if (selection.count == 5 * n){//é£æœºå¸¦å¯¹å­ç¿…è†€
 				  for (auto mem : selection.group){
-					  if (mem.second != 2 && mem.second != 3)//ÅÆ²»ºÏ¹æ
+					  if (mem.second != 2 && mem.second != 3)//ç‰Œä¸åˆè§„
 						  return;
 				  }
 				  selection.type = Airplane;
 				  selection.value = ValueMax;
 				  return;
 			  }
-			  return;//ÅÆ²»ºÏ¹æ
+			  return;//ç‰Œä¸åˆè§„
 	}
 	case 2:
-		if (selection.count == 2){//Ò»¶Ô
+		if (selection.count == 2){//ä¸€å¯¹
 			selection.type = Double;
 			selection.value = ValueMax;
 			return;
 		}
-		if (selection.count >= 6 && !(selection.count % 2)){//Á¬¶Ô
+		if (selection.count >= 6 && !(selection.count % 2)){//è¿å¯¹
 			int begin = 0;
-			for (auto mem : selection.group){//È·¶¨ÅÆÊÇÁ¬ĞøµÄ£¬²¢ÇÒ¶¼ÊÇ³É¶ÔµÄ
+			for (auto mem : selection.group){//ç¡®å®šç‰Œæ˜¯è¿ç»­çš„ï¼Œå¹¶ä¸”éƒ½æ˜¯æˆå¯¹çš„
 				if (!begin)
 					begin = mem.first;
-				if (begin++ != mem.first || mem.second != 2)//ÅÆ²»·ûºÏ¹æ¶¨
+				if (begin++ != mem.first || mem.second != 2)//ç‰Œä¸ç¬¦åˆè§„å®š
 					return;
 			}
 			selection.type = DoubleSeq;
 			selection.value = ValueMax;
 			return;
 		}
-		return;//ÅÆ²»·ûºÏ¹æ¶¨
+		return;//ç‰Œä¸ç¬¦åˆè§„å®š
 	case 1:
-		if (selection.count == 1){//µ¥ÕÅ
+		if (selection.count == 1){//å•å¼ 
 			selection.type = Single;
 			selection.value = ValueMax;
 			return;
 		}
-		else if (selection.count >= 5){//ÅĞ¶ÏÊÇ·ñÎªË³×Ó
+		else if (selection.count >= 5){//åˆ¤æ–­æ˜¯å¦ä¸ºé¡ºå­
 			int begin = 0;
 			for (auto mem : selection.group){
 				if (!begin)
 					begin = mem.first;
-				if (begin++ != mem.first || mem.first >= 15)//ÅÆ²»ÊÇÁ¬ĞøµÄ»òÕß´øÁË2¼°ÒÔÉÏµÄÅÆ
+				if (begin++ != mem.first || mem.first >= 15)//ç‰Œä¸æ˜¯è¿ç»­çš„æˆ–è€…å¸¦äº†2åŠä»¥ä¸Šçš„ç‰Œ
 					return;
 			}
-			selection.type = SingleSeq;//µ¥Ë³
+			selection.type = SingleSeq;//å•é¡º
 			selection.value = ValueMax;
 			return;
 		}
-	default://ÏÂÂä£¬²»·ûºÏ¹æ¶¨
+	default://ä¸‹è½ï¼Œä¸ç¬¦åˆè§„å®š
 		return;
 	}
 
 }
 
-//¸ø¶¨È¨Öµ£¬´Ó¼¯ºÏÖĞ²éÕÒÏàÓ¦0-53Êı×Ö£¬È»ºó´Ó¼¯ºÏÖĞÉ¾³ı²¢·µ»Ø¸ÃÊı×Ö£»²»´æÔÚ»òÎŞĞ§·µ»Ø-1
+//ç»™å®šæƒå€¼ï¼Œä»é›†åˆä¸­æŸ¥æ‰¾ç›¸åº”0-53æ•°å­—ï¼Œç„¶åä»é›†åˆä¸­åˆ é™¤å¹¶è¿”å›è¯¥æ•°å­—ï¼›ä¸å­˜åœ¨æˆ–æ— æ•ˆè¿”å›-1
 int Player::ValueToNum(set<int> &cardscopy, int value)
 {
 	if (value<3 || value>17 || cardscopy.empty())
@@ -305,7 +305,7 @@ int Player::ValueToNum(set<int> &cardscopy, int value)
 	}
 }
 
-//É¾³ı·ÖÎö¶ÑÖĞÊıÁ¿ÎªÁãµÄÔªËØ
+//åˆ é™¤åˆ†æå †ä¸­æ•°é‡ä¸ºé›¶çš„å…ƒç´ 
 void Player::FreshenMap(map<int, int> &m)
 {
 	bool notcomplete = true;
@@ -322,20 +322,20 @@ void Player::FreshenMap(map<int, int> &m)
 	}
 }
 
-//²ğ·ÖÊÖÅÆÅÆĞÍ²¢×é³É»ù±¾ÅÆ¼¯ºÏ
+//æ‹†åˆ†æ‰‹ç‰Œç‰Œå‹å¹¶ç»„æˆåŸºæœ¬ç‰Œé›†åˆ
 void Player::DivideIntoGroups(void)
 {
-	if (analyse.size())//ÅÆĞÍ¼¯ºÏ·Ç¿Õ£¬·µ»Ø
+	if (analyse.size())//ç‰Œå‹é›†åˆéç©ºï¼Œè¿”å›
 		return;
 
-	set<int> cardscopy(cards);//ÊÖÅÆ¸±±¾
-	map<int, int> needanalyse;//·½±ã·ÖÎöµÄÈ¨Öµ-ÊıÁ¿¼¯ºÏ
+	set<int> cardscopy(cards);//æ‰‹ç‰Œå‰¯æœ¬
+	map<int, int> needanalyse;//æ–¹ä¾¿åˆ†æçš„æƒå€¼-æ•°é‡é›†åˆ
 
 	for (auto mem : cardscopy)
-		++needanalyse[CardGroup::Translate(mem)];//¸ù¾İÊÖÅÆ¹¹Ôì´ı·ÖÎö¼¯ºÏ
+		++needanalyse[CardGroup::Translate(mem)];//æ ¹æ®æ‰‹ç‰Œæ„é€ å¾…åˆ†æé›†åˆ
 
 	if (needanalyse.find(16) != needanalyse.end() &&
-		needanalyse.find(17) != needanalyse.end()){//Âú×ãÌõ¼ş´æÔÚÍõÕ¨
+		needanalyse.find(17) != needanalyse.end()){//æ»¡è¶³æ¡ä»¶å­˜åœ¨ç‹ç‚¸
 		CardGroup *c = new CardGroup(Bomb, 17);
 		for (int i = 16; i < 18; ++i){
 			c->AddNumber(ValueToNum(cardscopy, i));
@@ -345,7 +345,7 @@ void Player::DivideIntoGroups(void)
 	}
 
 	for (auto mem : needanalyse){
-		if (mem.second == 4){	//Õ¨µ¯
+		if (mem.second == 4){	//ç‚¸å¼¹
 			CardGroup *c = new CardGroup(Bomb, mem.first);
 			for (int i = 0; i < 4; ++i){
 				c->AddNumber(ValueToNum(cardscopy, mem.first));
@@ -354,10 +354,10 @@ void Player::DivideIntoGroups(void)
 			needanalyse[mem.first] = 0;
 		}
 	}
-	//É¾³ı·ÖÎö¶ÑÖĞÊıÁ¿ÎªÁãµÄÔªËØ
+	//åˆ é™¤åˆ†æå †ä¸­æ•°é‡ä¸ºé›¶çš„å…ƒç´ 
 	FreshenMap(needanalyse);
 
-	//ÌáÇ°´¦Àí2
+	//æå‰å¤„ç†2
 	if (needanalyse.find(15) != needanalyse.end()){
 		CardGroup *c = new CardGroup(Unkown, 15);
 		int n = needanalyse[15];
@@ -377,34 +377,34 @@ void Player::DivideIntoGroups(void)
 		needanalyse.erase(15);
 		analyse.push_back(c);
 	}
-	//²éÕÒµ¥Ë³
+	//æŸ¥æ‰¾å•é¡º
 	int begin, n;
 	bool exist = true;
 	while (exist && needanalyse.size()){
 		begin = n = 0;
 		for (auto b = needanalyse.begin(); b != needanalyse.end(); ++b){
-			if (b->second > 0){//Ìø¹ıÎªÁãµÄÔªËØ
+			if (b->second > 0){//è·³è¿‡ä¸ºé›¶çš„å…ƒç´ 
 				if (!begin)
 					begin = b->first;
 				if (begin == b->first)
 					++n;
 				++begin;
 			}
-			if (n == 5){//Âú×ã×é³Éµ¥Ë³µÄÊıÁ¿
+			if (n == 5){//æ»¡è¶³ç»„æˆå•é¡ºçš„æ•°é‡
 				auto p = b;
 				if (begin - 1 != b->first)
 					--p;
-				int first = p->first - 4;//µ¥Ë³µÄµÚÒ»¸ö
+				int first = p->first - 4;//å•é¡ºçš„ç¬¬ä¸€ä¸ª
 				CardGroup *c = new CardGroup(SingleSeq, p->first);
 				for (first; first <= p->first; ++first){
 					c->AddNumber(ValueToNum(cardscopy, first));
-					--needanalyse[first];//¼õÒ»
+					--needanalyse[first];//å‡ä¸€
 				}
 				analyse.push_back(c);
 				exist = true;
-				break;//´Ó¿ªÊ¼ÖØĞÂ²éÕÒ
+				break;//ä»å¼€å§‹é‡æ–°æŸ¥æ‰¾
 			}
-			//Á¬ĞøÅÆÃæÊıÁ¿Ğ¡ÓÚÎå¸ö£¬ÖØĞÂ¼ÆÊı£»»òÕßÒÑµ½¼¯ºÏ×îºóÊıÁ¿ÈÔ²»Âú×ã
+			//è¿ç»­ç‰Œé¢æ•°é‡å°äºäº”ä¸ªï¼Œé‡æ–°è®¡æ•°ï¼›æˆ–è€…å·²åˆ°é›†åˆæœ€åæ•°é‡ä»ä¸æ»¡è¶³
 			auto end = needanalyse.end();
 			if (begin - 1 != b->first || b == --end){
 				if (b->second > 0){
@@ -420,13 +420,13 @@ void Player::DivideIntoGroups(void)
 		}
 	}
 
-	//É¾³ı·ÖÎö¶ÑÖĞÊıÁ¿ÎªÁãµÄÔªËØ
+	//åˆ é™¤åˆ†æå †ä¸­æ•°é‡ä¸ºé›¶çš„å…ƒç´ 
 	FreshenMap(needanalyse);
-	//Èç¿ÉÄÜ£¬¼ÌĞøÍùµ¥Ë³ÖĞÌí¼ÓÊ£ÓàÅÆ
+	//å¦‚å¯èƒ½ï¼Œç»§ç»­å¾€å•é¡ºä¸­æ·»åŠ å‰©ä½™ç‰Œ
 	for (auto mem : analyse){
-		if (mem->type == SingleSeq){//Õë¶ÔÃ¿¸öµ¥Ë³
+		if (mem->type == SingleSeq){//é’ˆå¯¹æ¯ä¸ªå•é¡º
 			for (auto m : needanalyse){
-				if (m.second > 0 && m.first == mem->value + 1){//Ê£ÓàÅÆÖĞ»¹ÓĞ±Èµ¥Ë³×î´ó´óÒ»µÄÅÆ
+				if (m.second > 0 && m.first == mem->value + 1){//å‰©ä½™ç‰Œä¸­è¿˜æœ‰æ¯”å•é¡ºæœ€å¤§å¤§ä¸€çš„ç‰Œ
 					mem->AddNumber(ValueToNum(cardscopy, m.first));
 					++mem->value;
 					--needanalyse[m.first];
@@ -435,23 +435,23 @@ void Player::DivideIntoGroups(void)
 			}
 		}
 	}
-	//É¾³ı·ÖÎö¶ÑÖĞÊıÁ¿ÎªÁãµÄÔªËØ
+	//åˆ é™¤åˆ†æå †ä¸­æ•°é‡ä¸ºé›¶çš„å…ƒç´ 
 	FreshenMap(needanalyse);
 
-	//ÈçÏÖÓĞµ¥Ë³ÖĞÓĞ¿ÉÒÔ¶Ô½Ó³É¸ü³¤µÄµ¥Ë³£»»òÁ½¸öµ¥Ë³ÔªËØÏàÍ¬£¬×éºÏ³ÉË«Ë³
+	//å¦‚ç°æœ‰å•é¡ºä¸­æœ‰å¯ä»¥å¯¹æ¥æˆæ›´é•¿çš„å•é¡ºï¼›æˆ–ä¸¤ä¸ªå•é¡ºå…ƒç´ ç›¸åŒï¼Œç»„åˆæˆåŒé¡º
 	for (auto mem1 : analyse){
-		if (mem1->type == SingleSeq){//µ¥Ë³1
+		if (mem1->type == SingleSeq){//å•é¡º1
 			for (auto mem2 : analyse){
-				if (mem2->type == SingleSeq && mem1 != mem2){//µ¥Ë³2£¬ÇÒºÍµ¥Ë³1²»ÊÇÍ¬Ò»¸ö
-					if (mem1->value < mem2->value){//mem1ÔÚÇ°
-						if (mem1->value == mem2->value - mem2->count){//¿ÉÒÔÆ´½Ó
+				if (mem2->type == SingleSeq && mem1 != mem2){//å•é¡º2ï¼Œä¸”å’Œå•é¡º1ä¸æ˜¯åŒä¸€ä¸ª
+					if (mem1->value < mem2->value){//mem1åœ¨å‰
+						if (mem1->value == mem2->value - mem2->count){//å¯ä»¥æ‹¼æ¥
 							for (auto m : mem2->cards)
 								mem1->AddNumber(m);
 							mem1->value = mem2->value;
 							mem2->type = Unkown;
 						}
 					}
-					else if (mem1->value > mem2->value){//mem1ÔÚºó
+					else if (mem1->value > mem2->value){//mem1åœ¨å
 						if (mem2->value == mem1->value - mem1->count){
 							for (auto m : mem1->cards)
 								mem2->AddNumber(m);
@@ -459,7 +459,7 @@ void Player::DivideIntoGroups(void)
 							mem1->type = Unkown;
 						}
 					}
-					else{//²âÊÔÊÇ·ñÍêÈ«Ò»Ñù£¬¿ÉÒÔºÏ²¢³ÉË«Ë³
+					else{//æµ‹è¯•æ˜¯å¦å®Œå…¨ä¸€æ ·ï¼Œå¯ä»¥åˆå¹¶æˆåŒé¡º
 						if (mem1->count == mem2->count){
 							for (auto m : mem2->cards)
 								mem1->AddNumber(m);
@@ -471,13 +471,13 @@ void Player::DivideIntoGroups(void)
 			}
 		}
 	}
-	if (needanalyse.empty()){//·ÖÎö¼¯ºÏÒÑ¿Õ£¬·µ»Ø
+	if (needanalyse.empty()){//åˆ†æé›†åˆå·²ç©ºï¼Œè¿”å›
 		DeleteUnkown();
 		sort(analyse.begin(), analyse.end(), MyCompare);
 		return;
 	}
 
-	//Ë«Ë³£¬Ö»²éÕÒÊıÁ¿´óÓÚµÈÓÚ2µÄÁ¬ĞøÅÆ£¬²¢ÇÒ3¸öÒÔÉÏÏàÁ¬
+	//åŒé¡ºï¼ŒåªæŸ¥æ‰¾æ•°é‡å¤§äºç­‰äº2çš„è¿ç»­ç‰Œï¼Œå¹¶ä¸”3ä¸ªä»¥ä¸Šç›¸è¿
 	begin = n = 0;
 	auto last = --needanalyse.end();
 	for (auto b = needanalyse.begin(); b != needanalyse.end(); ++b){
@@ -488,7 +488,7 @@ void Player::DivideIntoGroups(void)
 				++n;
 			++begin;
 		}
-		if (begin && begin - 1 != b->first || b == last){//³öÏÖÓëÖ®Ç°²»Á¬ĞøµÄ,»òÒÑµ½¼¯ºÏ×îºó
+		if (begin && begin - 1 != b->first || b == last){//å‡ºç°ä¸ä¹‹å‰ä¸è¿ç»­çš„,æˆ–å·²åˆ°é›†åˆæœ€å
 			if (n >= 3){
 				auto p = b;
 				if (begin - 1 != b->first)
@@ -503,7 +503,7 @@ void Player::DivideIntoGroups(void)
 				analyse.push_back(c);
 			}
 			if (b->second >= 2){
-				n = 1;//µ±Ç°·ÖÎöÅÆÊÇÁ½ÕÅÒÔÉÏµÄ
+				n = 1;//å½“å‰åˆ†æç‰Œæ˜¯ä¸¤å¼ ä»¥ä¸Šçš„
 				begin = b->first;
 				++begin;
 			}
@@ -514,11 +514,11 @@ void Player::DivideIntoGroups(void)
 		}
 	}
 
-	//É¾³ı·ÖÎö¶ÑÖĞÊıÁ¿ÎªÁãµÄÔªËØ
+	//åˆ é™¤åˆ†æå †ä¸­æ•°é‡ä¸ºé›¶çš„å…ƒç´ 
 	FreshenMap(needanalyse);
 
-	//ÈıË³
-	//²éÕÒÊÇ·ñÓĞÖØºÏµÄµ¥Ë³ºÍË«Ë³×éºÏ³ÉÈıË³
+	//ä¸‰é¡º
+	//æŸ¥æ‰¾æ˜¯å¦æœ‰é‡åˆçš„å•é¡ºå’ŒåŒé¡ºç»„åˆæˆä¸‰é¡º
 	for (auto mem1 : analyse){
 		if (mem1->type == SingleSeq){
 			for (auto mem2 : analyse){
@@ -539,7 +539,7 @@ void Player::DivideIntoGroups(void)
 		sort(analyse.begin(), analyse.end(), MyCompare);
 		return;
 	}
-	//Ê£ÓàÅÆÖĞ²éÕÒÈıË³
+	//å‰©ä½™ç‰Œä¸­æŸ¥æ‰¾ä¸‰é¡º
 	begin = n = 0;
 	last = --needanalyse.end();
 	for (auto b = needanalyse.begin(); b != needanalyse.end(); ++b){
@@ -550,8 +550,8 @@ void Player::DivideIntoGroups(void)
 				++n;
 			++begin;
 		}
-		if (begin && begin - 1 != b->first || b == last){//³öÏÖÓëÖ®Ç°²»Á¬ĞøµÄ,»òÒÑµ½¼¯ºÏ×îºó
-			if (n >= 2){//´æÔÚ2×é¼°ÒÔÉÏ
+		if (begin && begin - 1 != b->first || b == last){//å‡ºç°ä¸ä¹‹å‰ä¸è¿ç»­çš„,æˆ–å·²åˆ°é›†åˆæœ€å
+			if (n >= 2){//å­˜åœ¨2ç»„åŠä»¥ä¸Š
 				auto p = b;
 				if (begin - 1 != b->first)
 					--p;
@@ -563,7 +563,7 @@ void Player::DivideIntoGroups(void)
 					}
 				}
 				analyse.push_back(c);
-				if (b->second == 3){//µ±Ç°·ÖÎöÅÆÎª3ÕÅ£¬
+				if (b->second == 3){//å½“å‰åˆ†æç‰Œä¸º3å¼ ï¼Œ
 					n = 1;
 					begin = b->first;
 					++begin;
@@ -575,7 +575,7 @@ void Player::DivideIntoGroups(void)
 			}
 		}
 	}
-	//ÈıÌõ
+	//ä¸‰æ¡
 	for (auto mem : needanalyse){
 		if (mem.second == 3){
 			CardGroup *c = new CardGroup(Three, mem.first);
@@ -586,7 +586,7 @@ void Player::DivideIntoGroups(void)
 		}
 	}
 
-	//¶Ô×Ó
+	//å¯¹å­
 	for (auto mem : needanalyse){
 		if (mem.second == 2){
 			CardGroup *c = new CardGroup(Double, mem.first);
@@ -596,10 +596,10 @@ void Player::DivideIntoGroups(void)
 			analyse.push_back(c);
 		}
 	}
-	//É¾³ı·ÖÎö¶ÑÖĞÊıÁ¿ÎªÁãµÄÔªËØ
+	//åˆ é™¤åˆ†æå †ä¸­æ•°é‡ä¸ºé›¶çš„å…ƒç´ 
 	FreshenMap(needanalyse);
 
-	//µ¥ÅÆ
+	//å•ç‰Œ
 	for (auto mem : needanalyse){
 		if (mem.second != 1)
 			throw runtime_error("Still has singleness card");
@@ -608,7 +608,7 @@ void Player::DivideIntoGroups(void)
 		needanalyse[mem.first] = 0;
 		analyse.push_back(c);
 	}
-	//É¾³ı·ÖÎö¶ÑÖĞÊıÁ¿ÎªÁãµÄÔªËØ
+	//åˆ é™¤åˆ†æå †ä¸­æ•°é‡ä¸ºé›¶çš„å…ƒç´ 
 	FreshenMap(needanalyse);
 
 	DeleteUnkown();
@@ -616,12 +616,12 @@ void Player::DivideIntoGroups(void)
 
 }
 
-//ÓÉÈıÌõ¡¢ÈıË³ÍêÉÆ³ÉÈı´øÒ»ºÍ·É»ú£»ÏÈÕÒµ¥ÅÆ£¬ÔÙÕÒ¶Ô×Ó£¬¾ù²»¹»¾Í±£³ÖÔ­Ñù
+//ç”±ä¸‰æ¡ã€ä¸‰é¡ºå®Œå–„æˆä¸‰å¸¦ä¸€å’Œé£æœºï¼›å…ˆæ‰¾å•ç‰Œï¼Œå†æ‰¾å¯¹å­ï¼Œå‡ä¸å¤Ÿå°±ä¿æŒåŸæ ·
 void Player::ThreeplusAndAirplane()
 {
 	int n,
-		doublecount = 0,//Í³¼Æ¶Ô×ÓµÄÊıÁ¿£¬·½±ãÏÂÃæµÄÕûºÏ
-		singlecount = 0;//Í³¼Æµ¥ÕÅÊıÁ¿
+		doublecount = 0,//ç»Ÿè®¡å¯¹å­çš„æ•°é‡ï¼Œæ–¹ä¾¿ä¸‹é¢çš„æ•´åˆ
+		singlecount = 0;//ç»Ÿè®¡å•å¼ æ•°é‡
 
 	for (auto mem : analyse){
 		if (mem->type == Single)
@@ -630,7 +630,7 @@ void Player::ThreeplusAndAirplane()
 			++doublecount;
 	}
 
-	for (auto mem : analyse){//ÍêÉÆ·É»ú
+	for (auto mem : analyse){//å®Œå–„é£æœº
 		if (mem->type == ThreeSeq){
 			n = mem->count / 3;
 			if (singlecount >= n){
@@ -665,7 +665,7 @@ void Player::ThreeplusAndAirplane()
 			}
 		}
 	}
-	for (auto mem : analyse){//ÍêÉÆÈı´øÒ»
+	for (auto mem : analyse){//å®Œå–„ä¸‰å¸¦ä¸€
 		if (mem->type == Three){
 			if (singlecount){
 				for (auto temp : analyse){
@@ -695,7 +695,7 @@ void Player::ThreeplusAndAirplane()
 	}
 }
 
-//É¾³ıËùÓĞÎ´ÖªÀàĞÍµÄÅÆĞÍ
+//åˆ é™¤æ‰€æœ‰æœªçŸ¥ç±»å‹çš„ç‰Œå‹
 void Player::DeleteUnkown(void)
 {
 	auto b = analyse.begin();
@@ -709,22 +709,22 @@ void Player::DeleteUnkown(void)
 	}
 }
 
-//µçÄÔÑ¡ÅÆ
+//ç”µè„‘é€‰ç‰Œ
 void Player::SelectCards(bool hint)
 {
-	if (analyse.empty())//ÊÇ·ñĞèÒªÖØĞÂ·ÖÎöÊÖÅÆ
+	if (analyse.empty())//æ˜¯å¦éœ€è¦é‡æ–°åˆ†ææ‰‹ç‰Œ
 		DivideIntoGroups();
 	ThreeplusAndAirplane();
 	DeleteUnkown();
 	sort(analyse.begin(), analyse.end(), MyCompare);
 
-	if (analyse.size() == 2){//ÊÖÊıÎª2£¬ÇÒÓĞÊÊºÏµÄÕ¨µ¯Ö±½Ó³ö
+	if (analyse.size() == 2){//æ‰‹æ•°ä¸º2ï¼Œä¸”æœ‰é€‚åˆçš„ç‚¸å¼¹ç›´æ¥å‡º
 		for (auto mem : analyse){
 			if (mem->type == Bomb){
-				if (game.lastone != nullptr &&//Èç¹û×Ô¼ºÊÇ½Ó±ğÈËµÄÅÆ
-					game.lastone->discard.type == Bomb &&//±ğÈË×îºó³öÅÆÎªÕ¨µ¯£¬
-					mem->value <= game.lastone->discard.value)//ÇÒ×Ô¼ºµÄÕ¨µ¯²»´óÓÚ¶Ô·½Ê±£¬
-					continue;//²»ÄÜÑ¡Ôñ¸ÄÅÆ
+				if (game.lastone != nullptr &&//å¦‚æœè‡ªå·±æ˜¯æ¥åˆ«äººçš„ç‰Œ
+					game.lastone->discard.type == Bomb &&//åˆ«äººæœ€åå‡ºç‰Œä¸ºç‚¸å¼¹ï¼Œ
+					mem->value <= game.lastone->discard.value)//ä¸”è‡ªå·±çš„ç‚¸å¼¹ä¸å¤§äºå¯¹æ–¹æ—¶ï¼Œ
+					continue;//ä¸èƒ½é€‰æ‹©æ”¹ç‰Œ
 				selection = *mem;
 				return;
 			}
@@ -732,22 +732,22 @@ void Player::SelectCards(bool hint)
 	}
 	
 	if (game.lastone == nullptr)
-		Myself();//Ö±½Ó³öÅÆ
+		Myself();//ç›´æ¥å‡ºç‰Œ
 	else if (!hint && this != game.landlord && game.lastone != game.landlord)
-		Friend();//¸úÓÑ·½ÅÆ£º×îºó³öÅÆµÄÊÇÓÑ·½,²¢ÇÒ²»ÊÇÌáÊ¾
+		Friend();//è·Ÿå‹æ–¹ç‰Œï¼šæœ€åå‡ºç‰Œçš„æ˜¯å‹æ–¹,å¹¶ä¸”ä¸æ˜¯æç¤º
 	else
-		Enemy(hint);//¸úµĞ·½µÄÅÆ»òÌáÊ¾
+		Enemy(hint);//è·Ÿæ•Œæ–¹çš„ç‰Œæˆ–æç¤º
 }
 
 void Player::Myself()
 {
-	if (analyse.size() == 1){//Ê£×îºóÒ»ÊÖÅÆ
+	if (analyse.size() == 1){//å‰©æœ€åä¸€æ‰‹ç‰Œ
 		selection = *analyse[0];
 		return;
 	}
 
-	if (analyse.size() == 2){//Ê£Á½ÊÖÅÆ£¬³ö×î´óµÄÄÇ×é
-		//¡°²é¿´¡±ÆäËüÍæ¼ÒÊÖÅÆ£¬Ö»Îª·ÖÎöÊ£ÓàÅÆÖĞµÄ×î´óµÄ
+	if (analyse.size() == 2){//å‰©ä¸¤æ‰‹ç‰Œï¼Œå‡ºæœ€å¤§çš„é‚£ç»„
+		//â€œæŸ¥çœ‹â€å…¶å®ƒç©å®¶æ‰‹ç‰Œï¼Œåªä¸ºåˆ†æå‰©ä½™ç‰Œä¸­çš„æœ€å¤§çš„
 		int maxNum = 0;
 		Player *p = game.ProPlayer();
 		if (*p->cards.rbegin() > maxNum)
@@ -755,19 +755,19 @@ void Player::Myself()
 		p = game.NextPlayer();
 		if (*p->cards.rbegin() > maxNum)
 			maxNum = *p->cards.rbegin();
-		for (auto mem : analyse){//Èç¹ûÊÖÖĞÓĞ±ÈÊ£ÓàÅÆ»¹´óµÄÒ»ÊÖÅÆ£¬¾ÍÏÈ´ò³ö¸ÃÅÆ
+		for (auto mem : analyse){//å¦‚æœæ‰‹ä¸­æœ‰æ¯”å‰©ä½™ç‰Œè¿˜å¤§çš„ä¸€æ‰‹ç‰Œï¼Œå°±å…ˆæ‰“å‡ºè¯¥ç‰Œ
 			if (mem->value > CardGroup::Translate(maxNum)){
 				selection = *mem;
 				return;
 			}
 		}
-		//·ñÔò£¬´ò³öÅÆÀàĞÍ×î´óµÄÅÆ
+		//å¦åˆ™ï¼Œæ‰“å‡ºç‰Œç±»å‹æœ€å¤§çš„ç‰Œ
 		selection = *analyse[1];
 		return;
 	}
-	if (game.NextPlayer()->cards.size() == 1){//ÏÂ¼ÒÊÖÅÆÊıÎª1
-		if (this != game.landlord && game.lastone != game.landlord){//ÏÂ¼ÒÎªÓÑ·½
-			//Ã»ÊÔÑé¹ıÏÂ¼ÒÅÆ£¬¾Í´ò³ö×îĞ¡µÄÒ»ÕÅ£»·ñÔò¾ÍÕı³£³öÅÆ
+	if (game.NextPlayer()->cards.size() == 1){//ä¸‹å®¶æ‰‹ç‰Œæ•°ä¸º1
+		if (this != game.landlord && game.lastone != game.landlord){//ä¸‹å®¶ä¸ºå‹æ–¹
+			//æ²¡è¯•éªŒè¿‡ä¸‹å®¶ç‰Œï¼Œå°±æ‰“å‡ºæœ€å°çš„ä¸€å¼ ï¼›å¦åˆ™å°±æ­£å¸¸å‡ºç‰Œ
 			if (!test){
 				if (analyse[0]->type == Single &&
 					analyse[0]->value == CardGroup::Translate(*(cards.begin()))){
@@ -778,7 +778,7 @@ void Player::Myself()
 					selection.AddNumber(*(cards.begin()));
 					selection.type = Single;
 					selection.value = selection.group.begin()->first;
-					//²ğÅÆÁË£¡ÒªÖØĞÂ·ÖÎöÅÆ
+					//æ‹†ç‰Œäº†ï¼è¦é‡æ–°åˆ†æç‰Œ
 					ClearAnalyse();
 					return;
 				}
@@ -786,13 +786,13 @@ void Player::Myself()
 			}
 
 		}
-		else{//ÏÂ¼ÒÎªµĞ·½Ê£1ÅÆ
-			//´ıÊµÏÖ£¡£¡
-			//Ë¼Â·ÊÇ¾¡Á¿²»³öµ¥ÅÆ£¬Ö»ÓĞµ¥ÅÆÁËµÄ»°¾Í´Ó´óµ½Ğ¡³ö
+		else{//ä¸‹å®¶ä¸ºæ•Œæ–¹å‰©1ç‰Œ
+			//å¾…å®ç°ï¼ï¼
+			//æ€è·¯æ˜¯å°½é‡ä¸å‡ºå•ç‰Œï¼Œåªæœ‰å•ç‰Œäº†çš„è¯å°±ä»å¤§åˆ°å°å‡º
 		}
 	}
-	//Õı³£Ë³Ğò³öÅÆ£º(AÒÔÉÏµÄÅÆ¾¡Á¿²»Ö±½Ó³ö¡¢Õ¨µ¯²»Ö±½Ó³ö)
-	//µ¥ÅÆ¡ú¶Ô×Ó¡úË«Ë³¡úµ¥Ë³¡úÈıÌõ¡¢Èı´øÒ»¡¢·É»ú
+	//æ­£å¸¸é¡ºåºå‡ºç‰Œï¼š(Aä»¥ä¸Šçš„ç‰Œå°½é‡ä¸ç›´æ¥å‡ºã€ç‚¸å¼¹ä¸ç›´æ¥å‡º)
+	//å•ç‰Œâ†’å¯¹å­â†’åŒé¡ºâ†’å•é¡ºâ†’ä¸‰æ¡ã€ä¸‰å¸¦ä¸€ã€é£æœº
 	for (auto mem : analyse){
 		if ((mem->type == Single || mem->type == Double) &&
 			mem->value >= 15 || mem->type == Bomb)
@@ -807,9 +807,9 @@ void Player::Myself()
 void Player::Friend()
 {
 	if (game.lastone != game.landlord && game.ProPlayer() == game.landlord){
-		return;//ÉÏ¼ÒÎªµØÖ÷£¬µ«×îºó³öÅÆ·½ÎªÓÑ·½£¬Ôò²»³öÅÆ
+		return;//ä¸Šå®¶ä¸ºåœ°ä¸»ï¼Œä½†æœ€åå‡ºç‰Œæ–¹ä¸ºå‹æ–¹ï¼Œåˆ™ä¸å‡ºç‰Œ
 	}
-	for (auto mem : analyse){//²éÕÒÏàÓ¦ÅÆ
+	for (auto mem : analyse){//æŸ¥æ‰¾ç›¸åº”ç‰Œ
 		if (mem->type == game.lastone->discard.type &&
 			mem->count == game.lastone->discard.count &&
 			mem->value > game.lastone->discard.value){
@@ -819,20 +819,20 @@ void Player::Friend()
 		}
 	}
 	if (analyse.size() > 2 && selection.value > 14)
-		selection.Clear();//ÊÖÅÆÊÖÊı´óÓÚ2£¬²¢ÇÒËùÑ¡ÅÆÈ¨Öµ´óÓÚ14£¨A£©£¬Ôò²»³öÅÆ
+		selection.Clear();//æ‰‹ç‰Œæ‰‹æ•°å¤§äº2ï¼Œå¹¶ä¸”æ‰€é€‰ç‰Œæƒå€¼å¤§äº14ï¼ˆAï¼‰ï¼Œåˆ™ä¸å‡ºç‰Œ
 	return;
 }
 
 void Player::Enemy(bool hint)
 {
-	auto lastdiscard = game.lastone->discard;//µĞ·½³öÅÆ
+	auto lastdiscard = game.lastone->discard;//æ•Œæ–¹å‡ºç‰Œ
 
-	//²ğ³É»ù±¾ÅÆ
+	//æ‹†æˆåŸºæœ¬ç‰Œ
 	ClearAnalyse();
 	DivideIntoGroups();
 	sort(analyse.begin(), analyse.end(), MyCompare);
 
-	for (auto mem : analyse){//²é¿´ÊÇ·ñÓĞÏàÓ¦ÅÆ£¬²¢ÇÒÈ¨Öµ´ó
+	for (auto mem : analyse){//æŸ¥çœ‹æ˜¯å¦æœ‰ç›¸åº”ç‰Œï¼Œå¹¶ä¸”æƒå€¼å¤§
 		if (mem->type == lastdiscard.type &&
 			mem->count == lastdiscard.count &&
 			mem->value > lastdiscard.value){
@@ -841,9 +841,9 @@ void Player::Enemy(bool hint)
 			return;
 		}
 	}
-	//ĞèÒª²ğÅÆ
+	//éœ€è¦æ‹†ç‰Œ
 	switch (lastdiscard.type){
-	case Single://µĞ·½³öµÄÊÇµ¥ÅÆ
+	case Single://æ•Œæ–¹å‡ºçš„æ˜¯å•ç‰Œ
 		NeedSigle();
 		break;
 	case Double:
@@ -854,10 +854,10 @@ void Player::Enemy(bool hint)
 		break;
 	case Three:
 		break;
-	case ThreePlus://Èı´øÒ»
+	case ThreePlus://ä¸‰å¸¦ä¸€
 		NeedThreePlus();
 		break;
-	case Airplane://·É»ú£¬ĞèÒª×éºÏ
+	case Airplane://é£æœºï¼Œéœ€è¦ç»„åˆ
 		NeedAirplane();
 		break;
 	default:
@@ -865,13 +865,13 @@ void Player::Enemy(bool hint)
 	}
 	if (selection.count)
 		return;
-	//µĞ·½Ê£Ò»ÕÅÅÆ£¬»òÓĞÊÊºÏµÄÕ¨µ¯£¬¾Í³öÕ¨µ¯
+	//æ•Œæ–¹å‰©ä¸€å¼ ç‰Œï¼Œæˆ–æœ‰é€‚åˆçš„ç‚¸å¼¹ï¼Œå°±å‡ºç‚¸å¼¹
 	if (hint || lastdiscard.count > 3 || lastdiscard.value > 14){
 		for (auto mem : analyse){
 			if (mem->type == Bomb){
-				if (game.lastone->discard.type == Bomb &&//Èç¹û±ğÈË×îºó³öÅÆÎªÕ¨µ¯£¬
-					mem->value <= game.lastone->discard.value)//ÇÒ×Ô¼ºµÄÕ¨µ¯²»´óÓÚ¶Ô·½Ê±£¬
-					continue;//²»ÄÜÑ¡Ôñ¸ÄÅÆ
+				if (game.lastone->discard.type == Bomb &&//å¦‚æœåˆ«äººæœ€åå‡ºç‰Œä¸ºç‚¸å¼¹ï¼Œ
+					mem->value <= game.lastone->discard.value)//ä¸”è‡ªå·±çš„ç‚¸å¼¹ä¸å¤§äºå¯¹æ–¹æ—¶ï¼Œ
+					continue;//ä¸èƒ½é€‰æ‹©æ”¹ç‰Œ
 				selection = *mem;
 				return;
 			}
@@ -882,44 +882,44 @@ void Player::Enemy(bool hint)
 
 void Player::NeedSigle()
 {
-	auto lastdiscard = game.lastone->discard;//µĞ·½³öÅÆ
+	auto lastdiscard = game.lastone->discard;//æ•Œæ–¹å‡ºç‰Œ
 
 	for (auto mem : analyse){
-		if (mem->type == SingleSeq && mem->count > 5){//Ê×ÏÈ,²ğµ¥Ë³ÊıÁ¿´óÓÚ5µÄ
+		if (mem->type == SingleSeq && mem->count > 5){//é¦–å…ˆ,æ‹†å•é¡ºæ•°é‡å¤§äº5çš„
 			if (mem->group.begin()->first > lastdiscard.value){
 				selection.AddNumber(*mem->cards.begin());
 				selection.value = mem->group.begin()->first;
 				selection.type = Single;
-				ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+				ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 				return;
 			}
 			else if (mem->group.rbegin()->first > lastdiscard.value){
 				selection.AddNumber(*(mem->cards.rbegin()));
 				selection.value = mem->value;
 				selection.type = Single;
-				ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+				ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 				return;
 			}
 		}
 	}
 	for (auto mem : analyse){
-		if (mem->type == Three){//Æä´Î,²ğÈıÌõ
+		if (mem->type == Three){//å…¶æ¬¡,æ‹†ä¸‰æ¡
 			if (mem->group.begin()->first > lastdiscard.value){
 				selection.AddNumber(*mem->cards.begin());
 				selection.value = mem->group.begin()->first;
 				selection.type = Single;
-				ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+				ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 				return;
 			}
 		}
 	}
 	for (auto mem : analyse){
-		if (mem->type == Double){//ÔÙÕß,²ğ¶Ô×Ó
+		if (mem->type == Double){//å†è€…,æ‹†å¯¹å­
 			if (mem->group.begin()->first > lastdiscard.value){
 				selection.AddNumber(*mem->cards.begin());
 				selection.value = mem->group.begin()->first;
 				selection.type = Single;
-				ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+				ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 				return;
 			}
 		}
@@ -928,38 +928,38 @@ void Player::NeedSigle()
 
 void Player::NeedDouble()
 {
-	auto lastdiscard = game.lastone->discard;//µĞ·½³öÅÆ
+	auto lastdiscard = game.lastone->discard;//æ•Œæ–¹å‡ºç‰Œ
 
 	for (auto mem : analyse){
-		if (mem->type == Three){//²ğÈıÌõ
+		if (mem->type == Three){//æ‹†ä¸‰æ¡
 			if (mem->group.begin()->first > lastdiscard.value){
 				auto b = mem->cards.begin();
 				for (int i = 0; i < 2; ++i)
 					selection.AddNumber(*b++);
 				selection.value = mem->group.begin()->first;
 				selection.type = Double;
-				ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+				ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 				return;
 			}
 		}
 	}
 	for (auto mem : analyse){
 		int i = 0, m = 0;
-		if (mem->type == ThreeSeq){//²ğÈıË³
+		if (mem->type == ThreeSeq){//æ‹†ä¸‰é¡º
 			if (mem->group.begin()->first > lastdiscard.value){
 				auto b = mem->cards.begin();
 				for (int i = 0; i < 2; ++i)
 					selection.AddNumber(*b++);
 				selection.value = mem->group.begin()->first;
 				selection.type = Double;
-				ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+				ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 				return;
 			}
 			else if (mem->group.rbegin()->first > lastdiscard.value){
 				selection.AddNumber(*(mem->cards.rbegin()));
 				selection.value = mem->value;
 				selection.type = Double;
-				ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+				ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 				return;
 			}
 		}
@@ -968,30 +968,30 @@ void Player::NeedDouble()
 
 void Player::NeedSigleSeq()
 {
-	auto lastdiscard = game.lastone->discard;//µĞ·½³öÅÆ
+	auto lastdiscard = game.lastone->discard;//æ•Œæ–¹å‡ºç‰Œ
 
 	for (auto mem : analyse){
 		if (mem->type == SingleSeq &&
 			mem->value > lastdiscard.value &&
-			mem->count > lastdiscard.count){//²ğ¸ü³¤µÄµ¥Ë³
+			mem->count > lastdiscard.count){//æ‹†æ›´é•¿çš„å•é¡º
 			if (mem->count - (mem->value - lastdiscard.value) >= lastdiscard.count){
-				//³¤µ¥Ë³ÊÇ´Ó¶Ìµ¥Ë³µÄ¿ªÊ¼µÄÔªËØ»ò¸üĞ¡µÄÔªËØ¿ªÊ¼µÄ
+				//é•¿å•é¡ºæ˜¯ä»çŸ­å•é¡ºçš„å¼€å§‹çš„å…ƒç´ æˆ–æ›´å°çš„å…ƒç´ å¼€å§‹çš„
 				for (int i = lastdiscard.value - lastdiscard.count + 2, j = 0;
 					j < lastdiscard.count; ++j)
 					selection.AddNumber(ValueToNum(mem->cards, i + j));
 				selection.value = lastdiscard.value + 1;
 				selection.type = SingleSeq;
-				ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+				ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 				return;
 			}
-			else{//³¤µ¥Ë³µÄ¿ªÊ¼ÔªËØ±È¶Ìµ¥Ë³µÄ¿ªÊ¼ÔªËØ´ó
+			else{//é•¿å•é¡ºçš„å¼€å§‹å…ƒç´ æ¯”çŸ­å•é¡ºçš„å¼€å§‹å…ƒç´ å¤§
 				int i = 0;
 				auto b = mem->cards.begin();
 				for (; i < lastdiscard.count; ++i, ++b)
 					selection.AddNumber(*b);
 				selection.value = CardGroup::Translate(*--b);
 				selection.type = SingleSeq;
-				ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+				ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 				return;
 			}
 		}
@@ -1001,15 +1001,15 @@ void Player::NeedSigleSeq()
 void Player::NeedThreePlus()
 {
 	auto b = analyse.begin();
-	for (; b != analyse.end(); ++b){//²éÕÒ±È¶Ô·½ÈıÕÅÏàÍ¬ÅÆµÄÅÆÃæ´óµÄÈıÌõ
+	for (; b != analyse.end(); ++b){//æŸ¥æ‰¾æ¯”å¯¹æ–¹ä¸‰å¼ ç›¸åŒç‰Œçš„ç‰Œé¢å¤§çš„ä¸‰æ¡
 		if ((*b)->type == Three && (*b)->value > game.lastone->discard.value){
 			break;
 		}
 	}
-	if (b == analyse.end())//Èç¹ûÃ»ÓĞ
-		return;//Ìø³ö
-	if (game.lastone->discard.count == 4){//×îºó³öÅÆÎªÈı´øÒ»ÕÅ
-		if (analyse[0]->type == Single){//ÓĞµ¥ÅÆ
+	if (b == analyse.end())//å¦‚æœæ²¡æœ‰
+		return;//è·³å‡º
+	if (game.lastone->discard.count == 4){//æœ€åå‡ºç‰Œä¸ºä¸‰å¸¦ä¸€å¼ 
+		if (analyse[0]->type == Single){//æœ‰å•ç‰Œ
 			for (auto m : analyse[0]->cards)
 				(*b)->AddNumber(m);
 			(*b)->type = ThreePlus;
@@ -1017,38 +1017,38 @@ void Player::NeedThreePlus()
 			selection = **b;
 			return;
 		}
-		else{//ĞèÒª²ğÅÆ
+		else{//éœ€è¦æ‹†ç‰Œ
 			for (auto mem : analyse){
-				if (mem->type == SingleSeq && mem->count > 5){//Ê×ÏÈ,²ğµ¥Ë³ÊıÁ¿´óÓÚ5µÄ
+				if (mem->type == SingleSeq && mem->count > 5){//é¦–å…ˆ,æ‹†å•é¡ºæ•°é‡å¤§äº5çš„
 					selection = **b;
 					selection.AddNumber(*mem->cards.begin());
 					selection.type = ThreePlus;
-					ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+					ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 					return;
 				}
 			}
 			for (auto mem : analyse){
-				if (mem->type == Three && mem != *b && mem->value < 14){//Æä´Î,²ğÈıÌõ
+				if (mem->type == Three && mem != *b && mem->value < 14){//å…¶æ¬¡,æ‹†ä¸‰æ¡
 					selection = **b;
 					selection.AddNumber(*mem->cards.begin());
 					selection.type = ThreePlus;
-					ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+					ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 					return;
 				}
 			}
 			for (auto mem : analyse){
-				if (mem->type == Double && mem->value < 14){//ÔÙÕß,²ğ¶Ô×Ó
+				if (mem->type == Double && mem->value < 14){//å†è€…,æ‹†å¯¹å­
 					selection = **b;
 					selection.AddNumber(*mem->cards.begin());
 					selection.type = ThreePlus;
-					ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+					ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 					return;
 				}
 			}
 		}
 	}
-	else{//Èı´øÒ»¶Ô
-		for (auto mem : analyse){//ÏÈÕÒ¶Ô×Ó
+	else{//ä¸‰å¸¦ä¸€å¯¹
+		for (auto mem : analyse){//å…ˆæ‰¾å¯¹å­
 			if (mem->type == Double && mem->value < 14){
 				for (auto m : mem->cards)
 					(*b)->AddNumber(m);
@@ -1059,12 +1059,12 @@ void Player::NeedThreePlus()
 			}
 		}
 		for (auto mem : analyse){
-			if (mem->type == Three && mem != *b && mem->value < 14){//Æä´Î,²ğÈıÌõ
+			if (mem->type == Three && mem != *b && mem->value < 14){//å…¶æ¬¡,æ‹†ä¸‰æ¡
 				selection = **b;
 				for (int i = 0; i < 3; ++i)
 					selection.AddNumber(*mem->cards.begin());
 				selection.type = ThreePlus;
-				ClearAnalyse();//²ğÅÆÁË£¬Ò»¶¨ÒªÇå¿Õ
+				ClearAnalyse();//æ‹†ç‰Œäº†ï¼Œä¸€å®šè¦æ¸…ç©º
 				return;
 			}
 		}
@@ -1077,15 +1077,15 @@ void Player::NeedAirplane()
 	DivideIntoGroups();
 	sort(analyse.begin(), analyse.end(), MyCompare);
 
-	int wing = 0,//³á°òÀàĞÍ
-		n = 0;//µ¥Ë³ÖĞÈıÕÅÅÆµÄ¸öÊı
+	int wing = 0,//ç¿…è†€ç±»å‹
+		n = 0;//å•é¡ºä¸­ä¸‰å¼ ç‰Œçš„ä¸ªæ•°
 	for (auto mem : game.lastone->discard.group){
 		if (mem.second == 3)
 			++n;
 	}
-	if (game.lastone->discard.count == 5 * n)//·É»ú³á°òÎª¶Ô×Ó
+	if (game.lastone->discard.count == 5 * n)//é£æœºç¿…è†€ä¸ºå¯¹å­
 		wing = 2;
-	else{//·É»ú³á°òÎªµ¥ÕÅ
+	else{//é£æœºç¿…è†€ä¸ºå•å¼ 
 		while (game.lastone->discard.count != 4 * n)
 			--n;
 		wing = 1;
@@ -1121,51 +1121,51 @@ void Player::NeedAirplane()
 	return;
 }
 
-//³öÅÆ²¢ÖØÖÃ·ÖÎö¼¯ºÏ
+//å‡ºç‰Œå¹¶é‡ç½®åˆ†æé›†åˆ
 bool Player::DiscardAndClear()
 {
-	discard = selection;//°ÑÑ¡ÅÆ·ÅÈë³öÅÆÇø£º´ò³öÑ¡ÅÆ
-	bool needclear = true;//±¾´Î³öÅÆÊÇ·ñÎª²ğÅÆ£¬ĞèÒª¸üĞÂ·ÖÎöÅÆ¶Ñ
+	discard = selection;//æŠŠé€‰ç‰Œæ”¾å…¥å‡ºç‰ŒåŒºï¼šæ‰“å‡ºé€‰ç‰Œ
+	bool needclear = true;//æœ¬æ¬¡å‡ºç‰Œæ˜¯å¦ä¸ºæ‹†ç‰Œï¼Œéœ€è¦æ›´æ–°åˆ†æç‰Œå †
 	for (auto b = analyse.begin(); b != analyse.end(); ++b){
 		if ((*b)->type == selection.type &&
 			(*b)->value == selection.value &&
-			(*b)->count == selection.count){//²»ÊÇ²ğÅÆ
+			(*b)->count == selection.count){//ä¸æ˜¯æ‹†ç‰Œ
 			delete (*b);
 			analyse.erase(b);
-			needclear = false;//²»ĞèÒªÇå¿Õ
+			needclear = false;//ä¸éœ€è¦æ¸…ç©º
 			break;
 		}
 	}
-	if (needclear)//ĞèÒªÇå¿Õ£¬ÏÂ´Î³öÅÆÒªÖØĞÂ·ÖÎö
+	if (needclear)//éœ€è¦æ¸…ç©ºï¼Œä¸‹æ¬¡å‡ºç‰Œè¦é‡æ–°åˆ†æ
 		ClearAnalyse();
 
 	for (auto mem : selection.cards){
-		cards.erase(mem);//´ÓÊÖÅÆÖĞÉ¾³ı´ò³öÅÆ
+		cards.erase(mem);//ä»æ‰‹ç‰Œä¸­åˆ é™¤æ‰“å‡ºç‰Œ
 	}
-	selection.Clear();//Çå¿ÕÑ¡ÅÆÇø
+	selection.Clear();//æ¸…ç©ºé€‰ç‰ŒåŒº
 	return true;
 }
-//µçÄÔ³öÅÆ
+//ç”µè„‘å‡ºç‰Œ
 bool Player::Discard(void)
 {
-	if (selection.count == 0){//µçÄÔÑ¡ÅÆÇøÎª¿Õ£¬ËµÃ÷²»³ö
+	if (selection.count == 0){//ç”µè„‘é€‰ç‰ŒåŒºä¸ºç©ºï¼Œè¯´æ˜ä¸å‡º
 		nodiscard = true;
 		return false;
 	}
-	//·ñÔòÕı³£´ò³ö
+	//å¦åˆ™æ­£å¸¸æ‰“å‡º
 	return DiscardAndClear();
 }
-//Íæ¼Ò³öÅÆ
+//ç©å®¶å‡ºç‰Œ
 bool Player::HumanDiscard()
 {
-	if (!IsValid()){//Ñ¡ÅÆ²»·ûºÏ¹æ¶¨
-		selection.Clear();//Çå¿ÕÑ¡ÅÆ
-		return false;//²»ÔÊĞí³ö
+	if (!IsValid()){//é€‰ç‰Œä¸ç¬¦åˆè§„å®š
+		selection.Clear();//æ¸…ç©ºé€‰ç‰Œ
+		return false;//ä¸å…è®¸å‡º
 	}
-	//·ñÔòÕı³£´ò³ö£¬²¢·ÖÎöÊÇ·ñ²ğÅÆ
+	//å¦åˆ™æ­£å¸¸æ‰“å‡ºï¼Œå¹¶åˆ†ææ˜¯å¦æ‹†ç‰Œ
 	return DiscardAndClear();
 }
-//¹ıÅÆ
+//è¿‡ç‰Œ
 void Player::Pass(void)
 {
 	nodiscard = true;

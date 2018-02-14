@@ -3,15 +3,15 @@
 #include <set>
 #include "cards.h"
 
-//ÓÎÏ·½ø¶È×´Ì¬
+//æ¸¸æˆè¿›åº¦çŠ¶æ€
 enum Status{
-	NOTSTART,//ÓÎÏ·Î´¿ªÊ¼
-	GETLANDLORD,//½ĞµØÖ÷½×¶Î
-	SENDLANDLORDCARD,//·¢µØÖ÷ÅÆ½×¶Î
-	DISCARD,//³öÅÆ½×¶Î
-	GAMEOVER//ÓÎÏ·½áÊø
+	NOTSTART,//æ¸¸æˆæœªå¼€å§‹
+	GETLANDLORD,//å«åœ°ä¸»é˜¶æ®µ
+	SENDLANDLORDCARD,//å‘åœ°ä¸»ç‰Œé˜¶æ®µ
+	DISCARD,//å‡ºç‰Œé˜¶æ®µ
+	GAMEOVER//æ¸¸æˆç»“æŸ
 };
-//ÓÎÏ·Ö÷½á¹¹
+//æ¸¸æˆä¸»ç»“æ„
 class Game{
 	friend class Player;
 	friend class Scene;
@@ -19,38 +19,38 @@ public:
 	Game(HWND hwnd);
 	~Game();
 
-	Status GetStatus(void);//»ñÈ¡µ±Ç°ÓÎÏ·½ø¶È×´Ì¬
-	void GameStart(void);//¿ªÊ¼ĞÂÓÎÏ·
-	void InitGame(void);//³õÊ¼»¯Ïà¹Ø½á¹¹
+	Status GetStatus(void);//è·å–å½“å‰æ¸¸æˆè¿›åº¦çŠ¶æ€
+	void GameStart(void);//å¼€å§‹æ–°æ¸¸æˆ
+	void InitGame(void);//åˆå§‹åŒ–ç›¸å…³ç»“æ„
 	void LoadPlayerScore();
 	void StorePlayerScore();
 	void RegisterScene(Scene *s){ this->scene = s; }
-	inline void SendCard(void);//·¢ÅÆ
-	void GetLandlord(void);//½ĞµØÖ÷
-	void SendScore(int result);//ÉèÖÃÍæ¼Ò½ĞµØÖ÷·ÖÊı
-	void SendLandlordCard(void);//·¢µØÖ÷ÅÆ
-	Player *ProPlayer(void);//µ±Ç°Íæ¼ÒµÄÉÏ¼Ò
-	Player *NextPlayer(void);//µ±Ç°Íæ¼ÒÏÂ¼Ò
-	int NextPlayerNum(void);//µ±Ç°Íæ¼ÒµÄÏÂ¼ÒÔÚÍæ¼ÒÖ¸ÕëÊı×éÖĞµÄÏÂ±ê
-	bool IsHumanTurn(void);//µ±Ç°Íæ¼ÒÎªplayer[0]
-	void Discard(void);//³öÅÆ
-	void Hint(void);//ÌáÊ¾
-	void Pass(void);//¹ıÅÆ
-	void GameOver(void);//ÓÎÏ·½áÊø
+	inline void SendCard(void);//å‘ç‰Œ
+	void GetLandlord(void);//å«åœ°ä¸»
+	void SendScore(int result);//è®¾ç½®ç©å®¶å«åœ°ä¸»åˆ†æ•°
+	void SendLandlordCard(void);//å‘åœ°ä¸»ç‰Œ
+	Player *ProPlayer(void);//å½“å‰ç©å®¶çš„ä¸Šå®¶
+	Player *NextPlayer(void);//å½“å‰ç©å®¶ä¸‹å®¶
+	int NextPlayerNum(void);//å½“å‰ç©å®¶çš„ä¸‹å®¶åœ¨ç©å®¶æŒ‡é’ˆæ•°ç»„ä¸­çš„ä¸‹æ ‡
+	bool IsHumanTurn(void);//å½“å‰ç©å®¶ä¸ºplayer[0]
+	void Discard(void);//å‡ºç‰Œ
+	void Hint(void);//æç¤º
+	void Pass(void);//è¿‡ç‰Œ
+	void GameOver(void);//æ¸¸æˆç»“æŸ
 
 private:
-	Status status;//ÓÎÏ·½ø¶È
-	HWND hMainWnd;//Ö÷´°¿Ú
-	Scene *scene;//ÓÎÏ·³¡¾°
-	Cards cardheap;//·¢ÅÆ¶Ñ
-	Player *player[3];//ÕæÈËÍæ¼Ò±àºÅÎª0
-	Player *landlord;//µØÖ÷
-	Player *curplayer;//µ±Ç°³öÅÆÍæ¼Ò
-	Player *lastone;//×îºó³öÅÆ·½
-	int callscore[3];//¸÷¼Ò½ĞµØÖ÷µÄ·ÖÊı
-	int callbegin;//µÚÒ»¸ö½ĞµØÖ÷µÄÍæ¼Ò
-	int basescore;//±¾¾Ö»ù±¾·Ö
-	int times;//±¾¾Ö±¶ÂÊ
-	int questioned;//ÒÑÑ¯ÎÊÊıÁ¿
-	int landlordcard[3];//±¾¾ÖµØÖ÷µÄ×¨ÊôÅÆ´æ´¢Çø
+	Status status;//æ¸¸æˆè¿›åº¦
+	HWND hMainWnd;//ä¸»çª—å£
+	Scene *scene;//æ¸¸æˆåœºæ™¯
+	Cards cardheap;//å‘ç‰Œå †
+	Player *player[3];//çœŸäººç©å®¶ç¼–å·ä¸º0
+	Player *landlord;//åœ°ä¸»
+	Player *curplayer;//å½“å‰å‡ºç‰Œç©å®¶
+	Player *lastone;//æœ€åå‡ºç‰Œæ–¹
+	int callscore[3];//å„å®¶å«åœ°ä¸»çš„åˆ†æ•°
+	int callbegin;//ç¬¬ä¸€ä¸ªå«åœ°ä¸»çš„ç©å®¶
+	int basescore;//æœ¬å±€åŸºæœ¬åˆ†
+	int times;//æœ¬å±€å€ç‡
+	int questioned;//å·²è¯¢é—®æ•°é‡
+	int landlordcard[3];//æœ¬å±€åœ°ä¸»çš„ä¸“å±ç‰Œå­˜å‚¨åŒº
 };

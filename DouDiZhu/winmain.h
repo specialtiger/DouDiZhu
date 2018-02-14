@@ -7,13 +7,13 @@
 extern PTSTR szDataFile;
 
 enum Command{
-	No = 1,//²»½ĞµØÖ÷
-	Score1,//1·Ö
-	Score2,//2·Ö
-	Score3,//3·Ö
-	Discard,//³öÅÆ
-	Pass,//²»³ö
-	Hint//ÌáÊ¾
+	No = 1,//ä¸å«åœ°ä¸»
+	Score1,//1åˆ†
+	Score2,//2åˆ†
+	Score3,//3åˆ†
+	Discard,//å‡ºç‰Œ
+	Pass,//ä¸å‡º
+	Hint//æç¤º
 };
 
 

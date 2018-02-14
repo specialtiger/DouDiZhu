@@ -1,16 +1,16 @@
 /**************************************************************\
-ģ�飺
-	��Cards -> ������.exe
-�ļ���
+模块：
+	类Cards -> 斗地主.exe
+文件：
 	cards.cpp
-���ܣ�
-	��Ϸ������Ҫ���˿��࣬������ʾһ���˿ˡ�����ϴ�Ƽ����ƺ�����
-���ߣ�
-	�α���
-�޸���ʷ��
-	�޸���	�޸�ʱ��	�޸�����
+功能：
+	游戏进行需要的扑克类，用来表示一副扑克。包含洗牌及发牌函数。
+作者：
+	宋保明
+修改历史：
+	修改人	修改时间	修改内容
 	-------	-----------	-------------------------------
-	�α���	2014.12.5	����
+	宋保明	2014.12.5	创建
 \**************************************************************/
 
 #include <stdexcept>
@@ -23,16 +23,16 @@ using namespace std;
 Cards::Cards()
 {
 	for (int i = 0; i < 54; ++i)
-		cards[i] = i;//��ʼ��Ϊ0-53
-	RandCards();//ϴ��һ�β������ƶ�ʣ������
+		cards[i] = i;//初始化为0-53
+	RandCards();//洗牌一次并重置牌堆剩余牌数
 	
 	return;
 }
-//ϴ��
+//洗牌
 void Cards::RandCards(void)
 {
-	default_random_engine e(time(nullptr));//���������
-	uniform_int_distribution<unsigned> u(0, 53);//���ͷֲ�
+	default_random_engine e(time(nullptr));//随机数引擎
+	uniform_int_distribution<unsigned> u(0, 53);//整型分布
 
 	for (int i = 0; i < 54; i++){
 		int rand = u(e);
@@ -42,7 +42,7 @@ void Cards::RandCards(void)
 	
 	return;
 }
-//Ĩ��
+//抹牌
 int Cards::GetCard(void)
 {
 	if (!remain)

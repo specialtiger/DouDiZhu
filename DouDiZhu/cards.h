@@ -1,14 +1,14 @@
 #pragma once
 
-//·¢ÅÆ¶ÑÀà
+//å‘ç‰Œå †ç±»
 class Cards{
 public:
 	Cards();
-	void RandCards(void);//Ï´ÅÆ
-	int GetCard();//Ä¨ÅÆ
+	void RandCards(void);//æ´—ç‰Œ
+	int GetCard();//æŠ¹ç‰Œ
 	int GetRemain(void){ return remain; };
 
 private:
-	int cards[54];//ÅÆÊı×é
-	int remain;//Ê£ÓàÅÆÊı
+	int cards[54];//ç‰Œæ•°ç»„
+	int remain;//å‰©ä½™ç‰Œæ•°
 };
